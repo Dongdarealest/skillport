@@ -1,0 +1,22 @@
+# README Craft
+
+A README is a landing page for people who arrive skeptical and busy.
+
+## Structure
+
+1. Name and one line: what it is, in the words a user would search for.
+2. One screenshot, demo link or example output, above the fold. Proof before promises.
+3. Why it exists: the problem, in two lines, and what is different about this answer.
+4. Quick start: the shortest path from clone to running, copy-pasteable, tested.
+5. Examples of real use, not a feature list.
+6. Contributing and license, one line each, at the end.
+
+## Rules
+
+- Cut every badge that does not help a decision.
+- If a section has not changed in a year, it is probably wrong. Date or delete volatile claims.
+- Write for the second reader: the one deciding whether to trust this project with their time.
+
+## Output
+
+The full README in that structure, ready to commit.

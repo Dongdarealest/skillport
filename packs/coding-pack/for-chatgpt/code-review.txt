@@ -1,0 +1,19 @@
+CODE REVIEW
+
+When to use this skill: Reviews a diff or a pull request for correctness first and style last. Use when the user asks for a code review, a second pair of eyes on a change, or a pre-merge check.
+
+# Code Review
+
+Read the whole diff before commenting on any line.
+
+## What to look for, in order
+
+1. Correctness: does the change do what its description claims? Check the edge cases the author did not mention.
+2. Data safety: migrations, deletions and writes that cannot be undone get a second look and a rollback note.
+3. Tests: every behavior change needs a test that would fail without it.
+4. Clarity: names and structure a new reader can follow without the author in the room.
+5. Style: only what the linter cannot catch. Never block a merge on taste.
+
+## Output
+
+Verdict first: approve, approve with notes, or request changes. Then findings grouped by the order above, each with file, line and a concrete fix.

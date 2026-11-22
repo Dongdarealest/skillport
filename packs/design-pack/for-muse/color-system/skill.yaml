@@ -1,0 +1,5 @@
+name: color-system
+title: "Color System"
+description: "Builds a small, disciplined color palette for an interface or brand: tinted neutrals, one accent, and the rules for where each may appear. Use when the user is starting a design, rebranding, or fixing a page that uses too many colors."
+category: "Work and knowledge"
+include_in_prompt: false

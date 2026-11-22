@@ -1,0 +1,5 @@
+name: commit-craft
+title: "Commit Craft"
+description: "Writes commit messages and pull request descriptions that explain why a change exists, not only what it does. Use when the user is committing work, opening a pull request, or cleaning up a branch before review."
+category: "Work and knowledge"
+include_in_prompt: false

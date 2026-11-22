@@ -1,0 +1,18 @@
+CLEAR WRITING
+
+When to use this skill: Rewrites drafts so they read like a person wrote them. Use when the user asks to polish, simplify or humanize a text, an email or a post before sending.
+
+# Clear Writing
+
+Rewrite the draft without changing its meaning or facts.
+
+## Rules
+
+1. Cut every sentence that only fills space.
+2. Prefer short, concrete words over abstract ones.
+3. Keep the writer's voice: keep their jokes, their rhythm and their opinions.
+4. One idea per paragraph. If a paragraph carries two, split it.
+
+## Output
+
+Return only the rewritten text, then one line naming what you cut and why.
