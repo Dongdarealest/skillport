@@ -27,17 +27,23 @@ Same AI. Same brief. The only difference is a skill pack.
 
 ## Install
 
-Open a pack, choose the folder for your AI, and follow the three lines of instructions in that pack's README. The short version:
+One line in your terminal installs a whole pack. Swap the pack name and the last word for your AI:
 
-- **Claude:** copy the pack's `for-claude` folders into `~/.claude/skills/`
-- **Muse:** copy `for-muse` into `~/workspace/custom-skills/`
-- **Cursor:** copy `for-cursor/.cursor/rules/` into your project's `.cursor/rules/`
-- **Codex:** append `for-codex/AGENTS.md` to your project's `AGENTS.md`
-- **ChatGPT:** paste the `for-chatgpt` files into your custom GPT or project instructions
+```bash
+curl -fsSL https://raw.githubusercontent.com/Dongdarealest/skillport/main/install.sh | bash -s -- human-touch-pack claude
+```
+
+Packs: `human-touch-pack`, `design-pack`, `writing-pack`, `coding-pack`. AIs: `claude`, `muse`, `cursor`, `codex`.
+
+**ChatGPT:** it has no skills folder, so download the pack ZIP from its page above and paste the files in `for-chatgpt/` into your custom GPT or project instructions.
+
+**By hand:** every pack is also a ZIP download on its own page. Unzip it, open the folder for your AI, and copy its contents where that AI keeps its skills or rules. Each pack's README says exactly where, in one line per platform.
 
 ## For authors: the converter
 
-Writing your own skill? Write it once as a Claude-style `SKILL.md` and let SkillPort compile it for every platform:
+Writing your own skill? The fastest way is the [live demo](https://dongdarealest.github.io/skillport/): paste a Claude-style `SKILL.md`, get all five packages back, nothing to install.
+
+In the terminal instead:
 
 ```bash
 node src/skillport.mjs your-skill/SKILL.md dist

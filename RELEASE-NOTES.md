@@ -25,4 +25,5 @@ Presence and proof, improved.
 - A cinematic banner now opens the README: the SkillPort lighthouse, and the line "Your AI is running bare. Give it skills."
 - The after side of the demo was rebuilt around a real product window, so the difference reads at a glance.
 - Every pack is a one-click ZIP download from its own page, and pack pages now describe each skill in one line.
+- One-line install: a small installer script downloads a pack and places every skill in the right folder for Claude, Muse, Cursor or Codex.
 - The converter is a proper Node package (package.json, bin entry), and a CI workflow runs the tests and verifies every pack ships all five targets on every push.

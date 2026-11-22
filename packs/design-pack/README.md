@@ -2,8 +2,6 @@
 
 Three skills that give your AI a designer's eye.
 
-**[Download the whole pack as a ZIP](design-pack.zip)** and unzip it, or browse the folders below.
-
 ## Inside
 
 - **color-system**: Builds a small, disciplined color palette for an interface or brand: tinted neutrals, one accent, and the rules for where each may appear.
@@ -12,13 +10,15 @@ Three skills that give your AI a designer's eye.
 
 ## Install
 
-Pick your AI, then follow its line. Every folder below is ready to use as-is.
+One line, in your terminal:
 
-- **Claude:** copy each folder in `for-claude/` into `~/.claude/skills/` (or your project's `.claude/skills/`).
-- **Muse:** copy each folder in `for-muse/` into `~/workspace/custom-skills/`.
-- **Cursor:** copy the files in `for-cursor/.cursor/rules/` into your project's `.cursor/rules/`.
-- **Codex:** append the contents of `for-codex/AGENTS.md` to your project's `AGENTS.md`.
-- **ChatGPT:** paste each file in `for-chatgpt/` into a custom GPT's instructions, or into project instructions.
+```bash
+curl -fsSL https://raw.githubusercontent.com/Dongdarealest/skillport/main/install.sh | bash -s -- design-pack claude
+```
+
+Swap the last word for your AI: `claude`, `muse`, `cursor` or `codex`. For ChatGPT, download the ZIP above and paste the files in `for-chatgpt/` into your custom GPT or project instructions.
+
+By hand instead? Open the folder for your AI (`for-claude`, `for-muse`, `for-cursor`, `for-codex`, `for-chatgpt`) and copy its contents where your AI keeps its skills or rules. The pack README in the repo explains each target in one line.
 
 ## License
 
