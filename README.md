@@ -9,10 +9,10 @@
 New from the same workshop: [SkillDoctor](https://github.com/Dongdarealest/skilldoctor) audited 777 skills from the six biggest public collections, and one in three failed. [Read the audit](https://github.com/Dongdarealest/skilldoctor/blob/main/AUDIT.md).
 
 <p align="center">
-  <a href="https://github.com/Dongdarealest/skilldoctor/blob/main/REGISTRY.md"><img src="assets/skilldoctor-plaque.svg" alt="SkillDoctor audited plaque: health 92 of 100, 15 skills, 0 failures, November 2026" width="560"></a>
+  <a href="https://github.com/Dongdarealest/skilldoctor/blob/main/REGISTRY.md"><img src="https://dongdarealest.github.io/skilldoctor/badges/Dongdarealest--skillport-plaque.svg" alt="SkillDoctor audited plaque: health 98 of 100, 30 skills, 0 failures, November 2026" width="560"></a>
 </p>
 
-SkillPort itself sits in the SkillDoctor [registry](https://github.com/Dongdarealest/skilldoctor/blob/main/REGISTRY.md): all 15 skills pass with 0 failures. The plaque shows the lowest of the five pack scores, because the set is only as strong as its weakest pack.
+SkillPort itself sits in the SkillDoctor [registry](https://dongdarealest.github.io/skilldoctor/): every skill in the collection passes with 0 failures. The plaque above is served live from the registry and re-verified daily, so the score on its face is the current one, not a snapshot.
 
 [Live demo](https://dongdarealest.github.io/skillport/) · [Packs](#packs) · [Install](#install) · [Catalog](#catalog) · [For authors](#for-authors-the-converter) · [Philosophy](#philosophy)
 
