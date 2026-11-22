@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # SkillPort one-line installer.
 # Usage: install.sh <pack> <ai>
-#   pack: human-touch-pack | design-pack | writing-pack | coding-pack
+#   pack: human-touch-pack, shipsafe-pack | design-pack | writing-pack | coding-pack
 #   ai:   claude | cursor | codex | chatgpt
 set -euo pipefail
 PACK="${1:?Usage: install.sh <pack> <ai>}"

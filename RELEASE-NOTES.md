@@ -1,5 +1,9 @@
 # Release notes
 
+## v0.3.2
+
+The README now carries the headline from our audit of 777 public skills, with a link to the full report in SkillDoctor.
+
 ## v0.3.1
 
 The Windows install path gets the same treatment as the Mac and Linux one: a proper code block with a copy button, instead of a sentence telling you a script exists.

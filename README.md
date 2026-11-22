@@ -2,9 +2,11 @@
 
 ![SkillPort: a quiet port at night, a lighthouse beam over the water](assets/banner.png)
 
-![Release](https://img.shields.io/badge/release-v0.2.4-C9A35F) ![License](https://img.shields.io/badge/license-MIT-C9A35F) ![Platforms](https://img.shields.io/badge/platforms-Claude%20%C2%B7%20Cursor%20%C2%B7%20Codex%20%C2%B7%20ChatGPT-C9A35F) ![Skills](https://img.shields.io/badge/skills-15-C9A35F)
+![Release](https://img.shields.io/github/v/release/Dongdarealest/skillport?color=C9A35F) ![License](https://img.shields.io/badge/license-MIT-C9A35F) ![Platforms](https://img.shields.io/badge/platforms-Claude%20%C2%B7%20Cursor%20%C2%B7%20Codex%20%C2%B7%20ChatGPT-C9A35F) ![Skills](https://img.shields.io/badge/skills-15-C9A35F)
 
 **Your AI is running bare. Give it skills.**
+
+New from the same workshop: [SkillDoctor](https://github.com/Dongdarealest/skilldoctor) audited 777 skills from the six biggest public collections, and one in three failed. [Read the audit](https://github.com/Dongdarealest/skilldoctor/blob/main/AUDIT.md).
 
 [Live demo](https://dongdarealest.github.io/skillport/) · [Packs](#packs) · [Install](#install) · [Catalog](#catalog) · [For authors](#for-authors-the-converter) · [Philosophy](#philosophy)
 
@@ -115,13 +117,13 @@ Every pack is a ZIP download in the table above. Unzip it, open the folder for y
 
 Writing your own skill? Start from the [template](template/SKILL.md), write it once as a Claude-style `SKILL.md`, and let SkillPort compile it for every platform.
 
-The fastest way is the [live demo](https://dongdarealest.github.io/skillport/): paste a `SKILL.md`, get all five packages back, nothing to install. In the terminal:
+The fastest way is the [live demo](https://dongdarealest.github.io/skillport/): paste a `SKILL.md`, get every package back, nothing to install. In the terminal:
 
 ```bash
 node src/skillport.mjs your-skill/SKILL.md dist
 ```
 
-It produces all five packages plus a `PORT.md` manifest. Differences that cannot travel, such as `allowed-tools`, are reported in the manifest, never silently dropped. Folder assets (scripts, references) are copied for Claude and Muse targets and listed for the rest. No dependencies, Node 18 or newer. Four worked examples live in [`examples/`](examples/), including a data skill with scripts and references.
+It produces all four packages plus a `PORT.md` manifest. Differences that cannot travel, such as `allowed-tools`, are reported in the manifest, never silently dropped. Folder assets (scripts, references) are copied for the Claude target and listed for the rest. No dependencies, Node 18 or newer. Four worked examples live in [`examples/`](examples/), including a data skill with scripts and references.
 
 ## Updating
 

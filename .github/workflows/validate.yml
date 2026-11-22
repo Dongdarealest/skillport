@@ -16,4 +16,4 @@ jobs:
               test -d "$p$t" || { echo "MISSING $p$t"; exit 1; }
             done
           done
-          echo "All packs complete for all five AIs."
+          echo "All packs complete for all four AIs."
