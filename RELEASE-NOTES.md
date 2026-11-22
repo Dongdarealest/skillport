@@ -27,3 +27,11 @@ Presence and proof, improved.
 - Every pack is a one-click ZIP download from its own page, and pack pages now describe each skill in one line.
 - One-line install: a small installer script downloads a pack and places every skill in the right folder for Claude, Muse, Cursor or Codex.
 - The converter is a proper Node package (package.json, bin entry), and a CI workflow runs the tests and verifies every pack ships all five targets on every push.
+
+## v0.2.3 · 2026-11-22
+
+The README, rebuilt the way the big projects do it.
+
+- Full restructure after studying the leading skill projects: table of contents, a short "What is a skill?" explainer for newcomers, a "How it works" story, per-platform install sections with exact commands, a complete catalog of all twelve skills, updating instructions, a philosophy section, and a community section.
+- A fill-in skill template in `template/` so anyone can author a skill in the house format.
+- GitHub Discussions enabled for questions, ideas and before-and-after shares.
