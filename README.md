@@ -2,7 +2,7 @@
 
 ![SkillPort: a quiet port at night, a lighthouse beam over the water](assets/banner.png)
 
-![Release](https://img.shields.io/badge/release-v0.2.3-C9A35F) ![License](https://img.shields.io/badge/license-MIT-C9A35F) ![Platforms](https://img.shields.io/badge/platforms-Claude%20%C2%B7%20Muse%20%C2%B7%20Cursor%20%C2%B7%20Codex%20%C2%B7%20ChatGPT-C9A35F) ![Skills](https://img.shields.io/badge/skills-12-C9A35F)
+![Release](https://img.shields.io/badge/release-v0.2.4-C9A35F) ![License](https://img.shields.io/badge/license-MIT-C9A35F) ![Platforms](https://img.shields.io/badge/platforms-Claude%20%C2%B7%20Muse%20%C2%B7%20Cursor%20%C2%B7%20Codex%20%C2%B7%20ChatGPT-C9A35F) ![Skills](https://img.shields.io/badge/skills-12-C9A35F)
 
 **Your AI is running bare. Give it skills.**
 

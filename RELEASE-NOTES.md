@@ -35,3 +35,10 @@ The README, rebuilt the way the big projects do it.
 - Full restructure after studying the leading skill projects: table of contents, a short "What is a skill?" explainer for newcomers, a "How it works" story, per-platform install sections with exact commands, a complete catalog of all twelve skills, updating instructions, a philosophy section, and a community section.
 - A fill-in skill template in `template/` so anyone can author a skill in the house format.
 - GitHub Discussions enabled for questions, ideas and before-and-after shares.
+
+## v0.2.4 · 2026-11-22
+
+An honest demo.
+
+- The before/after comparison now uses one product on both sides: Fieldnotes, the same brief and the same sections, executed bare and then with the Human Touch Pack. Two different products proved nothing; one product, transformed, proves everything.
+- The share-card generator was removed from the site. A card nobody asked for is not a feature.
