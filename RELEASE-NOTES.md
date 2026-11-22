@@ -1,5 +1,9 @@
 # Release notes
 
+## v0.3.5
+
+A visitor counter joins the README badges: it goes up when someone opens the page, so the reach of the repo is visible at a glance.
+
 ## v0.3.4
 
 The site footer now shows a live reader visit count. It counts visitors, not the author: the author's own devices carry a small flag that keeps their visits out of the number.
