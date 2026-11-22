@@ -51,3 +51,8 @@ A README that looks designed, not typed.
 - Badges restyled flat and dark to match the house palette, centered as one row.
 - The contents list is gone; a single centered nav row does its job.
 - The catalog is now tables, one per pack.
+
+## v0.2.6 · 2026-11-22
+
+- The Muse target is removed from the packs. Its package was a duplicate of the Claude one, and a store should not ship placeholders. The converter still supports the format for anyone who needs it.
+- Designed masthead and social image updated to the four real targets: Claude, Cursor, Codex, ChatGPT.
