@@ -42,3 +42,12 @@ An honest demo.
 
 - The before/after comparison now uses one product on both sides: Fieldnotes, the same brief and the same sections, executed bare and then with the Human Touch Pack. Two different products proved nothing; one product, transformed, proves everything.
 - The share-card generator was removed from the site. A card nobody asked for is not a feature.
+
+## v0.2.5 · 2026-11-22
+
+A README that looks designed, not typed.
+
+- New masthead: a centered serif lockup over the harbor art replaces the plain title and banner, readable at any screen width.
+- Badges restyled flat and dark to match the house palette, centered as one row.
+- The contents list is gone; a single centered nav row does its job.
+- The catalog is now tables, one per pack.
