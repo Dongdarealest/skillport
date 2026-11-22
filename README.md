@@ -56,7 +56,12 @@ One line installs a whole pack. Swap the pack name and the last word for your AI
 curl -fsSL https://raw.githubusercontent.com/Dongdarealest/skillport/main/install.sh | bash -s -- human-touch-pack claude
 ```
 
-On Windows, `install.ps1` from this repo does the same job in PowerShell. Using Claude on the web instead? Zip any single skill folder inside a pack's `for-claude/` folder and upload it under Settings, Skills.
+On Windows, in PowerShell:
+
+```powershell
+irm https://raw.githubusercontent.com/Dongdarealest/skillport/main/install.ps1 -OutFile install.ps1
+.\install.ps1 human-touch-pack claude
+``` Using Claude on the web instead? Zip any single skill folder inside a pack's `for-claude/` folder and upload it under Settings, Skills.
 
 ### Cursor
 

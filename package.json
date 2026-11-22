@@ -1,6 +1,6 @@
 {
   "name": "skillport",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Your AI is running bare. Give it skills. Ready-made skill packs that install on Claude, Muse, Cursor, Codex and ChatGPT.",
   "type": "module",
   "bin": {

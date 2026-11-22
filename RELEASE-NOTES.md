@@ -1,5 +1,9 @@
 # Release notes
 
+## v0.3.1
+
+The Windows install path gets the same treatment as the Mac and Linux one: a proper code block with a copy button, instead of a sentence telling you a script exists.
+
 ## v0.3.0
 
 A fifth pack joins the store: ShipSafe, three defensive skills for anyone who installs other people's instructions. Vet a pack before it lands, scrub secrets before you share, and keep a restore point before an agent edits. The store now holds five packs and fifteen skills, every one pre-converted for Claude, Cursor, Codex, and ChatGPT.
