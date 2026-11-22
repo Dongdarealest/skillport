@@ -1,5 +1,9 @@
 # Release notes
 
+## v0.3.3
+
+The site now carries the audit story: 777 public skills checked, one in three failed, with the full report and the checker one click away.
+
 ## v0.3.2
 
 The README now carries the headline from our audit of 777 public skills, with a link to the full report in SkillDoctor.

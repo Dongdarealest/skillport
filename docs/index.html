@@ -504,6 +504,15 @@
     display:flex; flex-wrap:wrap; gap:6px 16px; justify-content:space-between;
   }
   footer .mono{ font-family:var(--mono); }
+
+  .audit { max-width: 1080px; margin: 72px auto 0; padding: 40px 32px; border: 1px solid #2a2a2a; background: #141414; color: #F2EFE9; }
+  .audit .eyebrow { color: #A98B4F; letter-spacing: 0.18em; font-size: 12px; text-transform: uppercase; margin: 0 0 12px; }
+  .audit h2 { font-family: Georgia, 'Times New Roman', serif; font-weight: 500; font-size: 30px; margin: 0 0 14px; }
+  .audit p.lede { color: #c9c4bb; max-width: 640px; line-height: 1.6; margin: 0 0 28px; }
+  .audit-stats { display: flex; flex-wrap: wrap; gap: 28px; margin-bottom: 28px; }
+  .audit-stat b { display: block; font-size: 30px; color: #F2EFE9; font-weight: 600; }
+  .audit-stat span { color: #8A8680; font-size: 13px; }
+  .audit-links a { color: #A98B4F; margin-right: 24px; text-decoration: none; border-bottom: 1px solid #A98B4F; padding-bottom: 2px; }
 </style>
 </head>
 <body>
@@ -679,6 +688,23 @@
     <span class="how-arrow" aria-hidden="true">→</span>
     <span class="how-step"><span class="how-num">3</span> Copy the ready folder in</span>
   </div>
+
+
+  <section class="audit" aria-labelledby="audit-title">
+    <p class="eyebrow">From the same workshop</p>
+    <h2 id="audit-title">We audited 777 public skills. One in three failed.</h2>
+    <p class="lede">SkillDoctor, our open source checker, read every skill in the six biggest public collections. The curated sets are nearly clean, scoring 96 to 100. The largest open collection failed 253 of its first 500 skills, and eight skills across the audit carried instructions touching credential material.</p>
+    <div class="audit-stats">
+      <div class="audit-stat"><b>777</b><span>skills audited</span></div>
+      <div class="audit-stat"><b>310</b><span>passed clean</span></div>
+      <div class="audit-stat"><b>267</b><span>failed checks</span></div>
+      <div class="audit-stat"><b>8</b><span>credential findings</span></div>
+    </div>
+    <div class="audit-links">
+      <a href="https://github.com/Dongdarealest/skilldoctor/blob/main/AUDIT.md" target="_blank" rel="noopener">Read the full audit</a>
+      <a href="https://github.com/Dongdarealest/skilldoctor" target="_blank" rel="noopener">Check your own skills</a>
+    </div>
+  </section>
 
   <div class="converter-head">
     <h2>For authors: convert your own skill</h2>
