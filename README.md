@@ -125,9 +125,13 @@ Run the install line again. The newest pack replaces the old one in place, and y
 
 Questions, ideas and skill requests belong in [Discussions](https://github.com/Dongdarealest/skillport/discussions). Bugs belong in [Issues](https://github.com/Dongdarealest/skillport/issues). If a pack changed your output, the most helpful thing you can share is a before and after.
 
+## Support
+
+SkillPort is free and MIT licensed. If it made your AI noticeably better, you can [sponsor the work on GitHub](https://github.com/sponsors/Dongdarealest) or [buy me a coffee on Ko-fi](https://ko-fi.com/dongdarealest).
+
 ## Contributing
 
-New packs and new skills are the most welcome contributions. Start from the [template](template/SKILL.md), keep each skill small, original and genuinely usable, and run `python3 build_packs.py` so every pack still ships all five targets. The CI workflow checks this on every pull request.
+New packs and new skills are the most welcome contributions. Start from the [template](template/SKILL.md), keep each skill small, original and genuinely usable, and run `python3 build_packs.py` so every pack still ships all four targets. The CI workflow checks this on every pull request.
 
 ## License
 
