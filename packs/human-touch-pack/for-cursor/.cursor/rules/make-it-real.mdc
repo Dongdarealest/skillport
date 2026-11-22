@@ -1,0 +1,21 @@
+---
+description: Forces any AI output to be specific instead of generic: real numbers, named examples, concrete details and a stated point of view. Use when the user says an output is vague, generic, could be about anything, or needs to feel grounded and believable.
+globs:
+alwaysApply: false
+---
+
+# Make It Real
+
+Generic output fails one test: swap the topic for a different one and nothing needs to change. Real work fails that swap test on every line.
+
+## Method
+
+1. **Numbers with edges.** Not "many users" but "about 4,000 users, most of them on Tuesdays". If the true number is unknown, mark the estimate as an estimate instead of rounding it into fog.
+2. **Names and places.** A named example the reader can check beats three abstract categories.
+3. **One detail only an insider would know.** Every field has them: the annoying step, the unwritten rule, the thing beginners get wrong. Find one and include it.
+4. **A point of view.** State what you would choose and why. "It depends" is allowed once, with the dependency named.
+5. **Cut the interchangeable.** Read each sentence and ask: could a competitor publish this unchanged? If yes, rewrite it until the answer is no.
+
+## Output
+
+The revised output, with the generic lines replaced rather than annotated. Flag any place where a real fact is needed and you had to estimate.

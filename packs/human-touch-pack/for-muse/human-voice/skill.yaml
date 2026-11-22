@@ -1,0 +1,5 @@
+name: human-voice
+title: "Human Voice"
+description: "Rewrites AI-generated text so it reads like a specific person wrote it: no filler openings, no buzzwords, no identical sentence rhythm. Use when the user says a draft sounds like AI, sounds generic, or needs to sound human before it is published."
+category: "Work and knowledge"
+include_in_prompt: false

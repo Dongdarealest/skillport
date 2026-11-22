@@ -1,0 +1,5 @@
+name: anti-slop-design
+title: "Anti Slop Design"
+description: "Designs interfaces and pages that do not look AI-generated: no purple gradient hero, no identical card grid, no default typeface at default sizes. Use when the user is generating a landing page, a UI or a visual and wants it to look designed by a person with taste."
+category: "Work and knowledge"
+include_in_prompt: false

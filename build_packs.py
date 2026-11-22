@@ -2,6 +2,7 @@ import os, shutil, subprocess, sys
 ROOT = os.path.expanduser("~/workspace/skillport")
 CLI = os.path.join(ROOT, "src/skillport.mjs")
 PACKS = {
+    "human-touch-pack": ("Human Touch Pack", "Three skills that make anything your AI produces look human-made, not generated."),
     "design-pack": ("Design Pack", "Three skills that give your AI a designer's eye."),
     "writing-pack": ("Writing Pack", "Three skills that make your AI write like a person."),
     "coding-pack": ("Coding Pack", "Three skills that make your AI review, commit and document like a senior engineer."),

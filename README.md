@@ -8,10 +8,15 @@ SkillPort fixes that. It is a store of ready-made skill packs that work on **Cla
 
 **Live demo:** https://dongdarealest.github.io/skillport/
 
+Same AI. Same brief. The only difference is a skill pack.
+
+![Before and after: a landing page made by a bare AI, then remade with SkillPort](assets/before-after.png)
+
 ## Packs
 
 | Pack | What your AI learns | Inside |
 |---|---|---|
+| [Human Touch Pack](packs/human-touch-pack/) | **Flagship.** Output that looks human-made, not generated | human-voice, anti-slop-design, make-it-real |
 | [Design Pack](packs/design-pack/) | A designer's eye | interface-craft, hero-section, color-system |
 | [Writing Pack](packs/writing-pack/) | To write like a person | clear-writing, headline-hook, warm-email |
 | [Coding Pack](packs/coding-pack/) | A senior engineer's habits | code-review, commit-craft, readme-craft |

@@ -394,6 +394,151 @@
   }
   .pack-link{ margin-top:auto; font-size:13.5px; font-weight:650; color:var(--accent); }
   .pack-card:hover .pack-link{ color:var(--accent-hover); text-decoration:underline; }
+  /* Flagship pack */
+  .pack-card.flagship{
+    grid-column:1 / -1;
+    border:1.5px solid var(--accent);
+    flex-direction:row;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:12px 30px;
+    padding:22px 24px;
+  }
+  .pack-card.flagship h3{ font-size:22px; }
+  .flag-badge{
+    font-family:var(--mono);
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:0.14em;
+    background:var(--accent);
+    color:#fff;
+    padding:4px 10px;
+    border-radius:999px;
+    white-space:nowrap;
+  }
+  @media (prefers-color-scheme: dark){ .flag-badge{ color:#0b1514; } }
+  .flagship .pack-tag{ margin:3px 0 0; }
+  .flagship .pack-skills{ flex-direction:row; flex-wrap:wrap; margin:0; }
+  .flagship .pack-link{ margin-top:0; margin-left:auto; }
+  @media (max-width: 640px){
+    .pack-card.flagship{ flex-direction:column; align-items:flex-start; }
+    .flagship .pack-link{ margin-left:0; }
+  }
+  /* See the difference */
+  .diff{ margin:0 0 30px; }
+  .diff-head{ display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:4px 18px; margin:0 0 14px; }
+  .diff-head h2{ margin:0; font-size:22px; letter-spacing:-0.02em; font-weight:700; }
+  .diff-head p{ margin:0; color:var(--muted); font-size:14px; }
+  .diff-grid{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:16px; align-items:stretch; }
+  @media (max-width: 900px){ .diff-grid{ grid-template-columns:minmax(0,1fr); } }
+  .mock{ border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; display:flex; flex-direction:column; background:var(--surface); }
+  .mock.after{ border-color:var(--accent); }
+  .mock-label{
+    font-family:var(--mono); font-size:11.5px; letter-spacing:0.09em;
+    padding:9px 14px; border-bottom:1px solid var(--border);
+    color:var(--muted); background:var(--surface-2);
+    display:flex; justify-content:space-between; gap:10px;
+  }
+  .mock-label strong{ color:var(--text); font-weight:700; }
+  .mock.after .mock-label strong{ color:var(--accent); }
+  /* Before mock: generic AI landing page */
+  .mock-before-hero{
+    background:linear-gradient(135deg, #7c3aed 0%, #4f46e5 55%, #2563eb 100%);
+    color:#fff; text-align:center; padding:30px 22px 26px;
+  }
+  .mock-before-eyebrow{ font-size:11px; letter-spacing:0.22em; font-weight:700; opacity:0.85; margin:0 0 12px; }
+  .mock-before-hero h3{ margin:0; font-size:26px; line-height:1.15; font-weight:800; letter-spacing:-0.01em; }
+  .mock-before-sub{ margin:12px auto 0; font-size:13.5px; line-height:1.55; color:rgba(255,255,255,0.85); max-width:380px; }
+  .mock-before-btns{ display:flex; gap:10px; justify-content:center; margin-top:18px; flex-wrap:wrap; }
+  .mock-before-btns span{ padding:9px 18px; border-radius:999px; font-size:13px; font-weight:700; }
+  .mock-btn-solid{ background:#fff; color:#4f46e5; }
+  .mock-btn-ghost{ border:1.5px solid rgba(255,255,255,0.7); color:#fff; }
+  .mock-before-cards{ display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:10px; padding:16px; background:#f4f2fb; flex:1; align-content:start; }
+  @media (max-width: 480px){ .mock-before-cards{ grid-template-columns:minmax(0,1fr); } }
+  .mock-before-card{ background:#fff; border-radius:12px; padding:14px 12px; text-align:center; box-shadow:0 4px 14px rgba(79,70,229,0.12); }
+  .mock-before-card .ic{
+    width:34px; height:34px; margin:0 auto 8px; border-radius:10px;
+    background:linear-gradient(135deg, #8b5cf6, #6366f1);
+    display:flex; align-items:center; justify-content:center; color:#fff;
+  }
+  .mock-before-card .ic svg{ width:18px; height:18px; }
+  .mock-before-card h4{ margin:0 0 4px; font-size:13px; color:#1e1b2e; }
+  .mock-before-card p{ margin:0; font-size:11.5px; color:#6b6880; line-height:1.45; }
+  /* After mock: calm editorial landing page */
+  .mock-after-body{
+    background:#fbf9f4; color:#262219; padding:26px 26px 22px;
+    flex:1; display:flex; flex-direction:column;
+  }
+  .mock-after-top{ display:flex; align-items:baseline; justify-content:space-between; gap:12px; border-bottom:1px solid #e3ddcf; padding-bottom:14px; }
+  .mock-after-brand{ font-weight:800; letter-spacing:0.18em; font-size:13px; }
+  .mock-after-label{ font-size:10.5px; letter-spacing:0.14em; color:#8a8271; text-align:right; }
+  .mock-after-body h3{
+    font-family:Georgia, "Times New Roman", serif;
+    font-weight:500; font-size:31px; line-height:1.15; letter-spacing:-0.01em;
+    margin:22px 0 0; max-width:400px;
+  }
+  .mock-after-copy{ margin:14px 0 0; font-size:14px; line-height:1.6; color:#4c4638; max-width:430px; }
+  .mock-after-cta{ display:flex; align-items:center; gap:14px; margin-top:20px; flex-wrap:wrap; }
+  .mock-after-btn{ background:#262219; color:#fbf9f4; padding:10px 20px; border-radius:4px; font-size:13.5px; font-weight:600; }
+  .mock-after-note{ font-size:12.5px; color:#8a8271; }
+  .mock-after-quote{
+    margin-top:auto; padding-top:20px;
+  }
+  .mock-after-quote p{
+    margin:0; border-top:1px solid #e3ddcf; padding-top:14px;
+    font-family:Georgia, "Times New Roman", serif; font-style:italic;
+    font-size:15px; line-height:1.5; color:#3a352a;
+  }
+  /* Show your setup */
+  .setup{
+    margin-top:20px;
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:20px;
+  }
+  .setup h2{ margin:0 0 4px; font-size:16px; letter-spacing:-0.01em; }
+  .setup > p{ margin:0 0 16px; color:var(--muted); font-size:13.5px; max-width:620px; }
+  .setup-grid{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.15fr); gap:22px; align-items:start; }
+  @media (max-width: 900px){ .setup-grid{ grid-template-columns:minmax(0,1fr); } }
+  .setup-legend{ font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:var(--faint); font-weight:650; margin:0 0 8px; }
+  .setup-opts{ display:flex; flex-direction:column; gap:8px; margin:0 0 16px; }
+  .setup-opt{
+    display:flex; align-items:center; gap:11px;
+    min-height:44px; padding:9px 12px;
+    border:1px solid var(--border); border-radius:8px;
+    background:var(--surface-2); cursor:pointer; font-size:14px; font-weight:550;
+  }
+  .setup-opt input{ width:18px; height:18px; accent-color:var(--accent); flex:none; margin:0; }
+  .setup-opt .opt-tag{ margin-left:auto; font-family:var(--mono); font-size:11px; color:var(--faint); }
+  .setup-ai-row{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+  .setup-ai-row label{ font-size:13.5px; color:var(--muted); font-weight:600; }
+  .setup-ai-row select{
+    min-height:40px; padding:8px 12px;
+    border:1px solid var(--border-strong); border-radius:8px;
+    background:var(--surface); color:var(--text);
+    font-family:inherit; font-size:14px; font-weight:550;
+  }
+  .share-card{
+    background:#15181a; color:#f2f0ea;
+    border-radius:12px; padding:26px 26px 22px;
+    display:flex; flex-direction:column; gap:0;
+  }
+  .share-card .sc-brand{ font-family:var(--mono); font-size:12px; letter-spacing:0.2em; color:#9aa39d; display:flex; align-items:center; gap:8px; }
+  .share-card .sc-brand .sc-dot{ width:8px; height:8px; border-radius:50%; background:#2dd4bf; flex:none; }
+  .share-card h3{ margin:16px 0 0; font-size:27px; line-height:1.15; letter-spacing:-0.02em; font-weight:750; }
+  .share-card h3 span{ color:#2dd4bf; }
+  .sc-packs{ list-style:none; margin:16px 0 0; padding:0; display:flex; flex-wrap:wrap; gap:7px; }
+  .sc-packs li{
+    font-family:var(--mono); font-size:12.5px;
+    border:1px solid #3a4043; border-radius:999px; padding:5px 11px; color:#e8e6df;
+  }
+  .sc-packs li.sc-none{ border-style:dashed; color:#9aa39d; }
+  .sc-ai{ margin:16px 0 0; font-size:14px; color:#c9cdc9; }
+  .sc-ai strong{ color:#f2f0ea; }
+  .sc-line{ margin:18px 0 0; padding-top:14px; border-top:1px solid #2c3134; font-family:Georgia, "Times New Roman", serif; font-style:italic; font-size:16px; color:#f2f0ea; }
+  .setup-actions{ margin-top:14px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+  .setup-hint{ font-size:12.5px; color:var(--faint); }
   /* Converter heading */
   .converter-head{
     margin:36px 0 16px;
@@ -419,8 +564,8 @@
       <p class="tagline">Ready-made skill packs that run on every AI.</p>
     </div>
     <div class="head-meta" aria-label="Store at a glance">
-      <span class="chip"><strong>3</strong> packs</span>
-      <span class="chip"><strong>9</strong> skills</span>
+      <span class="chip"><strong>4</strong> packs</span>
+      <span class="chip"><strong>12</strong> skills</span>
       <span class="chip"><strong>5</strong> AIs</span>
     </div>
   </div>
@@ -432,7 +577,78 @@
     <p class="hero-sub">Ready-made skill packs that install on Claude, Muse, Cursor, Codex and ChatGPT in about a minute. Pick a pack, copy the folder in — no file surgery, no YAML to write.</p>
   </section>
 
+  <section class="diff" aria-labelledby="diff-title">
+    <div class="diff-head">
+      <h2 id="diff-title">See the difference</h2>
+      <p>Same brief — “a landing page for a notes app” — two very different results.</p>
+    </div>
+    <div class="diff-grid">
+      <div class="mock before">
+        <div class="mock-label"><span><strong>BEFORE</strong> · BARE AI</span><span>no skills loaded</span></div>
+        <div class="mock-before-hero">
+          <p class="mock-before-eyebrow">INTRODUCING INNOVATEHUB 2.0</p>
+          <h3>Unlock the Power of Seamless Innovation</h3>
+          <p class="mock-before-sub">Leverage our robust, cutting-edge platform to elevate your workflow and delve into next-level productivity.</p>
+          <div class="mock-before-btns">
+            <span class="mock-btn-solid">Get Started Free</span>
+            <span class="mock-btn-ghost">Watch Demo</span>
+          </div>
+        </div>
+        <div class="mock-before-cards">
+          <div class="mock-before-card">
+            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 4.5 13.5H11L9.8 22 19 9.5h-6.5L13 2z"/></svg></div>
+            <h4>Lightning Fast</h4>
+            <p>Blazing-fast performance that supercharges your entire workflow.</p>
+          </div>
+          <div class="mock-before-card">
+            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
+            <h4>Secure and Robust</h4>
+            <p>Enterprise-grade security you can trust, built for peace of mind.</p>
+          </div>
+          <div class="mock-before-card">
+            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18.2 8.5c1.9 2.3 1.9 4.7 0 7-1.6 1.9-4 1.9-6.2 0-2.2-1.9-4.6-1.9-6.2 0-1.9 2.3-1.9 4.7 0 7 1.6 1.9 4 1.9 6.2 0 2.2-1.9 4.6-1.9 6.2 0z" transform="rotate(90 12 12)"/></svg></div>
+            <h4>Scale Infinitely</h4>
+            <p>From startup to enterprise, our platform grows with you seamlessly.</p>
+          </div>
+        </div>
+      </div>
+      <div class="mock after">
+        <div class="mock-label"><span><strong>AFTER</strong> · WITH SKILLPORT</span><span>Human Touch Pack</span></div>
+        <div class="mock-after-body">
+          <div class="mock-after-top">
+            <span class="mock-after-brand">FIELDNOTES</span>
+            <span class="mock-after-label">FOR TEAMS OF THREE TO THIRTY</span>
+          </div>
+          <h3>Notes that stay out of your way.</h3>
+          <p class="mock-after-copy">Fieldnotes keeps your team's writing in one quiet place. No feeds, no badges, no AI summaries nobody asked for. 4,100 teams switched this spring.</p>
+          <div class="mock-after-cta">
+            <span class="mock-after-btn">Start free</span>
+            <span class="mock-after-note">14 days, no card</span>
+          </div>
+          <div class="mock-after-quote">
+            <p>“We deleted three apps the week we adopted it.”</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="packs" aria-label="Skill packs">
+    <a class="pack-card flagship" href="https://github.com/Dongdarealest/skillport/tree/main/packs/human-touch-pack" target="_blank" rel="noopener">
+      <div>
+        <div class="pack-top">
+          <h3>Human Touch Pack</h3>
+          <span class="flag-badge">FLAGSHIP</span>
+        </div>
+        <p class="pack-tag">Looks human-made, not generated</p>
+      </div>
+      <ul class="pack-skills">
+        <li>human-voice</li>
+        <li>anti-slop-design</li>
+        <li>make-it-real</li>
+      </ul>
+      <span class="pack-link">Get the pack on GitHub →</span>
+    </a>
     <a class="pack-card" href="https://github.com/Dongdarealest/skillport/tree/main/packs/design-pack" target="_blank" rel="noopener">
       <div class="pack-top">
         <h3>Design Pack</h3>
@@ -545,6 +761,45 @@
       <div class="format-item">
         <h3>ChatGPT</h3>
         <p>Plain <code>instructions.txt</code> to paste into a custom GPT or project instructions.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="setup" aria-labelledby="setup-title">
+    <h2 id="setup-title">Show your setup</h2>
+    <p>Running SkillPort already? Build your card and post it — it takes ten seconds and tells the world your AI isn't running bare.</p>
+    <div class="setup-grid">
+      <div>
+        <p class="setup-legend" id="setup-packs-legend">Packs you use</p>
+        <div class="setup-opts" role="group" aria-labelledby="setup-packs-legend">
+          <label class="setup-opt"><input type="checkbox" class="setup-pack" value="Human Touch Pack" checked /> Human Touch Pack <span class="opt-tag">flagship</span></label>
+          <label class="setup-opt"><input type="checkbox" class="setup-pack" value="Design Pack" /> Design Pack</label>
+          <label class="setup-opt"><input type="checkbox" class="setup-pack" value="Writing Pack" /> Writing Pack</label>
+          <label class="setup-opt"><input type="checkbox" class="setup-pack" value="Coding Pack" /> Coding Pack</label>
+        </div>
+        <div class="setup-ai-row">
+          <label for="setup-ai">Runs on</label>
+          <select id="setup-ai">
+            <option>Claude</option>
+            <option>Muse</option>
+            <option>Cursor</option>
+            <option>Codex</option>
+            <option>ChatGPT</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <div class="share-card" id="share-card">
+          <div class="sc-brand"><span class="sc-dot"></span> SKILLPORT</div>
+          <h3>MY AI RUNS <span>SKILLPORT</span></h3>
+          <ul class="sc-packs" id="sc-packs"></ul>
+          <p class="sc-ai">Running on <strong id="sc-ai">Claude</strong></p>
+          <p class="sc-line">Not running bare.</p>
+        </div>
+        <div class="setup-actions">
+          <button class="btn btn-primary" id="download-card" type="button">Download PNG</button>
+          <span class="setup-hint">1200 × 630 — sized for X, LinkedIn and GitHub.</span>
+        </div>
       </div>
     </div>
   </section>
@@ -888,6 +1143,121 @@
   });
 
   convert();
+})();
+</script>
+
+<script>
+(function(){
+  "use strict";
+
+  var packBoxes = Array.prototype.slice.call(document.querySelectorAll(".setup-pack"));
+  var aiSelect = document.getElementById("setup-ai");
+  var scPacks = document.getElementById("sc-packs");
+  var scAi = document.getElementById("sc-ai");
+  var downloadBtn = document.getElementById("download-card");
+
+  function chosenPacks(){
+    return packBoxes.filter(function(b){ return b.checked; }).map(function(b){ return b.value; });
+  }
+
+  function renderCard(){
+    var packs = chosenPacks();
+    scPacks.innerHTML = "";
+    if (!packs.length){
+      var li = document.createElement("li");
+      li.className = "sc-none";
+      li.textContent = "no packs yet — tick one";
+      scPacks.appendChild(li);
+    } else {
+      packs.forEach(function(p){
+        var li = document.createElement("li");
+        li.textContent = p;
+        scPacks.appendChild(li);
+      });
+    }
+    scAi.textContent = aiSelect.value;
+  }
+
+  packBoxes.forEach(function(b){ b.addEventListener("change", renderCard); });
+  aiSelect.addEventListener("change", renderCard);
+  renderCard();
+
+  function roundRect(ctx, x, y, w, h, r){
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.arcTo(x + w, y, x + w, y + h, r);
+    ctx.arcTo(x + w, y + h, x, y + h, r);
+    ctx.arcTo(x, y + h, x, y, r);
+    ctx.arcTo(x, y, x + w, y, r);
+    ctx.closePath();
+  }
+
+  downloadBtn.addEventListener("click", function(){
+    var W = 1200, H = 630;
+    var canvas = document.createElement("canvas");
+    canvas.width = W; canvas.height = H;
+    var ctx = canvas.getContext("2d");
+    var packs = chosenPacks();
+    var ai = aiSelect.value;
+    var SANS = "-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif";
+    var MONO = "ui-monospace, Menlo, Consolas, monospace";
+    var SERIF = "Georgia, 'Times New Roman', serif";
+
+    ctx.fillStyle = "#15181a";
+    ctx.fillRect(0, 0, W, H);
+
+    // Brand row
+    ctx.fillStyle = "#2dd4bf";
+    ctx.beginPath(); ctx.arc(84, 84, 9, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = "#9aa39d";
+    ctx.font = "600 24px " + MONO;
+    ctx.fillText("S K I L L P O R T", 112, 93);
+
+    // Headline
+    ctx.fillStyle = "#f2f0ea";
+    ctx.font = "750 76px " + SANS;
+    ctx.fillText("MY AI RUNS", 72, 208);
+    ctx.fillStyle = "#2dd4bf";
+    ctx.fillText("SKILLPORT", 72, 296);
+
+    // Pack pills
+    var label = packs.length ? packs.join("  ·  ") : "No packs yet";
+    ctx.font = "26px " + MONO;
+    var pillW = Math.min(ctx.measureText(label).width + 56, W - 144);
+    ctx.strokeStyle = "#3a4043";
+    ctx.lineWidth = 2;
+    roundRect(ctx, 72, 344, pillW, 58, 29);
+    ctx.stroke();
+    ctx.fillStyle = "#e8e6df";
+    ctx.save();
+    ctx.beginPath(); roundRect(ctx, 72, 344, pillW, 58, 29); ctx.clip();
+    ctx.fillText(label, 100, 383);
+    ctx.restore();
+
+    // AI line
+    ctx.font = "30px " + SANS;
+    ctx.fillStyle = "#c9cdc9";
+    ctx.fillText("Running on ", 72, 472);
+    var w1 = ctx.measureText("Running on ").width;
+    ctx.font = "700 30px " + SANS;
+    ctx.fillStyle = "#f2f0ea";
+    ctx.fillText(ai, 72 + w1, 472);
+
+    // Divider + closing line
+    ctx.strokeStyle = "#2c3134";
+    ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(72, 528); ctx.lineTo(W - 72, 528); ctx.stroke();
+    ctx.fillStyle = "#f2f0ea";
+    ctx.font = "italic 34px " + SERIF;
+    ctx.fillText("Not running bare.", 72, 582);
+
+    var a = document.createElement("a");
+    a.download = "my-ai-runs-skillport.png";
+    a.href = canvas.toDataURL("image/png");
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  });
 })();
 </script>
 </body>
