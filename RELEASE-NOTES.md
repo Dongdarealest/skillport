@@ -1,5 +1,10 @@
 # Release notes
 
+## v0.3.4
+
+The site footer now shows a live reader visit count. It counts visitors, not the author: the author's own devices carry a small flag that keeps their visits out of the number.
+
+
 ## v0.3.3
 
 The site now carries the audit story: 777 public skills checked, one in three failed, with the full report and the checker one click away.
