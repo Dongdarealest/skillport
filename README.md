@@ -32,6 +32,10 @@ No dependencies. Node 18 or newer.
 
 Skills are becoming the unit of reusable AI know-how, the way packages became the unit of reusable code. But a skill locked to one vendor helps only that vendor's users. SkillPort treats the skill as the source of truth and each platform as a compile target, so authors can publish once and reach everyone.
 
+## Examples
+
+Four worked examples live in [`examples/`](examples/): a writing skill, a design skill, a code review skill with `allowed-tools`, and a data skill with scripts and references, so you can see exactly how each shape converts.
+
 ## Status
 
 Early prototype. The converter handles frontmatter (`name`, `description`, `license`, `allowed-tools`) and the markdown body. Folder assets such as scripts and references are copied for Claude and Muse targets and listed in the manifest for the rest.
