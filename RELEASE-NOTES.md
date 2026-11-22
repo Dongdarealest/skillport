@@ -1,5 +1,9 @@
 # Release notes
 
+## v0.2.10
+
+Adoption polish, found by installing SkillPort the way a stranger would. The installers no longer offer a target the packs do not ship, and the Support section now uses proper sponsor buttons instead of bare links.
+
 ## v0.2.9
 
 The comparison is now one page in two executions everywhere, site included: the after panel on the website mirrors the before panel slot for slot, centered hero, pill buttons, three icon cards, with the craft carried by typography, palette, and copy.

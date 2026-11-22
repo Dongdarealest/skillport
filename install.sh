@@ -2,7 +2,7 @@
 # SkillPort one-line installer.
 # Usage: install.sh <pack> <ai>
 #   pack: human-touch-pack | design-pack | writing-pack | coding-pack
-#   ai:   claude | muse | cursor | codex | chatgpt
+#   ai:   claude | cursor | codex | chatgpt
 set -euo pipefail
 PACK="${1:?Usage: install.sh <pack> <ai>}"
 AI="${2:?Usage: install.sh <pack> <ai>}"
@@ -12,14 +12,11 @@ echo "Downloading $PACK..."
 curl -fsSL "$BASE/$PACK.zip" -o "$TMP/pack.zip"
 unzip -q "$TMP/pack.zip" -d "$TMP/x"
 SRC="$TMP/x/$PACK/for-$AI"
-[ -d "$SRC" ] || { echo "Unknown AI target: $AI (use claude, muse, cursor, codex or chatgpt)"; exit 1; }
+[ -d "$SRC" ] || { echo "Unknown AI target: $AI (use claude, cursor, codex or chatgpt)"; exit 1; }
 case "$AI" in
   claude)
     DEST="$HOME/.claude/skills"; mkdir -p "$DEST"; cp -R "$SRC"/* "$DEST"/
     echo "Done. $PACK is installed for Claude in $DEST" ;;
-  muse)
-    DEST="$HOME/workspace/custom-skills"; mkdir -p "$DEST"; cp -R "$SRC"/* "$DEST"/
-    echo "Done. $PACK is installed for Muse in $DEST" ;;
   cursor)
     DEST="$PWD/.cursor/rules"; mkdir -p "$DEST"; cp "$SRC/.cursor/rules"/*.mdc "$DEST"/
     echo "Done. $PACK rules are in $DEST" ;;
