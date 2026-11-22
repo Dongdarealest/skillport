@@ -1,5 +1,0 @@
-name: code-review
-title: "Code Review"
-description: "Reviews a diff or a pull request for correctness first and style last. Use when the user asks for a code review, a second pair of eyes on a change, or a pre-merge check."
-category: "Work and knowledge"
-include_in_prompt: false

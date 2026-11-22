@@ -1,5 +1,0 @@
-name: readme-craft
-title: "Readme Craft"
-description: "Writes or rewrites a project README so a stranger understands what the project is, why it exists and how to run it within one screen. Use when the user is launching a repo, open sourcing a tool, or fixing a README nobody reads."
-category: "Work and knowledge"
-include_in_prompt: false

@@ -1,5 +1,0 @@
-name: make-it-real
-title: "Make It Real"
-description: "Forces any AI output to be specific instead of generic: real numbers, named examples, concrete details and a stated point of view. Use when the user says an output is vague, generic, could be about anything, or needs to feel grounded and believable."
-category: "Work and knowledge"
-include_in_prompt: false

@@ -15,9 +15,9 @@ One line, in your terminal:
 curl -fsSL https://raw.githubusercontent.com/Dongdarealest/skillport/main/install.sh | bash -s -- {pack} claude
 ```
 
-Swap the last word for your AI: `claude`, `muse`, `cursor` or `codex`. On Windows, use `install.ps1` from the repo root the same way. For ChatGPT, download the ZIP above and paste the files in `for-chatgpt/` into your custom GPT or project instructions. Using Claude on the web instead? Zip any single skill folder inside `for-claude/` and upload it under Settings, Skills.
+Swap the last word for your AI: `claude`, `cursor` or `codex`. On Windows, use `install.ps1` from the repo root the same way. For ChatGPT, download the ZIP above and paste the files in `for-chatgpt/` into your custom GPT or project instructions. Using Claude on the web instead? Zip any single skill folder inside `for-claude/` and upload it under Settings, Skills.
 
-By hand instead? Open the folder for your AI (`for-claude`, `for-muse`, `for-cursor`, `for-codex`, `for-chatgpt`) and copy its contents where your AI keeps its skills or rules. The pack README in the repo explains each target in one line.
+By hand instead? Open the folder for your AI (`for-claude`, `for-cursor`, `for-codex`, `for-chatgpt`) and copy its contents where your AI keeps its skills or rules. The pack README in the repo explains each target in one line.
 
 ## License
 
@@ -25,7 +25,7 @@ MIT. Use them, change them, ship them.
 """
 for pack, (title, blurb) in PACKS.items():
     pdir = os.path.join(ROOT, "packs", pack)
-    for d in ["for-claude", "for-muse", "for-cursor", "for-codex", "for-chatgpt"]:
+    for d in ["for-claude", "for-cursor", "for-codex", "for-chatgpt"]:
         shutil.rmtree(os.path.join(pdir, d), ignore_errors=True)
     skills = sorted(os.listdir(os.path.join(pdir, "skills")))
     codex_sections = []
@@ -34,7 +34,6 @@ for pack, (title, blurb) in PACKS.items():
         shutil.rmtree(tmp, ignore_errors=True)
         subprocess.run(["node", CLI, os.path.join(pdir, "skills", skill, "SKILL.md"), tmp], check=True, capture_output=True)
         shutil.copytree(os.path.join(tmp, "claude", skill), os.path.join(pdir, "for-claude", skill))
-        shutil.copytree(os.path.join(tmp, "muse", skill), os.path.join(pdir, "for-muse", skill))
         os.makedirs(os.path.join(pdir, "for-cursor", ".cursor", "rules"), exist_ok=True)
         shutil.copy(os.path.join(tmp, "cursor", ".cursor", "rules", f"{skill}.mdc"), os.path.join(pdir, "for-cursor", ".cursor", "rules", f"{skill}.mdc"))
         codex_sections.append(open(os.path.join(tmp, "codex", "AGENTS.md")).read())
