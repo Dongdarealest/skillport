@@ -33,7 +33,7 @@ One line in your terminal installs a whole pack. Swap the pack name and the last
 curl -fsSL https://raw.githubusercontent.com/Dongdarealest/skillport/main/install.sh | bash -s -- human-touch-pack claude
 ```
 
-Packs: `human-touch-pack`, `design-pack`, `writing-pack`, `coding-pack`. AIs: `claude`, `muse`, `cursor`, `codex`.
+Packs: `human-touch-pack`, `design-pack`, `writing-pack`, `coding-pack`. AIs: `claude`, `muse`, `cursor`, `codex`. On Windows, `install.ps1` in this repo does the same job in PowerShell.
 
 **ChatGPT:** it has no skills folder, so download the pack ZIP from its page above and paste the files in `for-chatgpt/` into your custom GPT or project instructions.
 
