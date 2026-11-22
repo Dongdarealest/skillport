@@ -8,6 +8,12 @@
 
 New from the same workshop: [SkillDoctor](https://github.com/Dongdarealest/skilldoctor) audited 777 skills from the six biggest public collections, and one in three failed. [Read the audit](https://github.com/Dongdarealest/skilldoctor/blob/main/AUDIT.md).
 
+<p align="center">
+  <a href="https://github.com/Dongdarealest/skilldoctor/blob/main/REGISTRY.md"><img src="assets/skilldoctor-plaque.svg" alt="SkillDoctor audited plaque: health 92 of 100, 15 skills, 0 failures, November 2026" width="560"></a>
+</p>
+
+SkillPort itself sits in the SkillDoctor [registry](https://github.com/Dongdarealest/skilldoctor/blob/main/REGISTRY.md): all 15 skills pass with 0 failures. The plaque shows the lowest of the five pack scores, because the set is only as strong as its weakest pack.
+
 [Live demo](https://dongdarealest.github.io/skillport/) · [Packs](#packs) · [Install](#install) · [Catalog](#catalog) · [For authors](#for-authors-the-converter) · [Philosophy](#philosophy)
 
 ## Contents
@@ -42,11 +48,11 @@ Same AI. Same brief. The only difference is a skill pack.
 
 | Pack | What your AI learns | Download |
 |---|---|---|
-| [Human Touch Pack](packs/human-touch-pack/) | **Flagship.** Output that looks human-made, not generated | [ZIP](packs/human-touch-pack/human-touch-pack.zip) |
-| [Design Pack](packs/design-pack/) | A designer's eye | [ZIP](packs/design-pack/design-pack.zip) |
-| [Writing Pack](packs/writing-pack/) | To write like a person | [ZIP](packs/writing-pack/writing-pack.zip) |
-| [Coding Pack](packs/coding-pack/) | A senior engineer's habits | [ZIP](packs/coding-pack/coding-pack.zip) |
-| [ShipSafe Pack](packs/shipsafe-pack/) | To check before it trusts, and to undo what went wrong | [ZIP](packs/shipsafe-pack/shipsafe-pack.zip) |
+| [Human Touch Pack](packs/human-touch-pack/) | **Flagship.** Output that looks human-made, not generated | [ZIP](https://github.com/Dongdarealest/skillport/releases/download/v0.3.6/human-touch-pack.zip) |
+| [Design Pack](packs/design-pack/) | A designer's eye | [ZIP](https://github.com/Dongdarealest/skillport/releases/download/v0.3.6/design-pack.zip) |
+| [Writing Pack](packs/writing-pack/) | To write like a person | [ZIP](https://github.com/Dongdarealest/skillport/releases/download/v0.3.6/writing-pack.zip) |
+| [Coding Pack](packs/coding-pack/) | A senior engineer's habits | [ZIP](https://github.com/Dongdarealest/skillport/releases/download/v0.3.6/coding-pack.zip) |
+| [ShipSafe Pack](packs/shipsafe-pack/) | To check before it trusts, and to undo what went wrong | [ZIP](https://github.com/Dongdarealest/skillport/releases/download/v0.3.6/shipsafe-pack.zip) |
 
 ## Install
 

@@ -1,5 +1,9 @@
 # Release notes
 
+## v0.3.6
+
+The packs earned their plaque. SkillPort has been audited by SkillDoctor and is listed in its registry: all 15 skills pass with 0 failures, and the plaque at the top of the README shows the lowest of the five pack scores, 92. The pack ZIP downloads now point at the assets of this release, so downloads are countable; the links stay one click, in the same table.
+
 ## v0.3.5
 
 A visitor counter joins the README badges: it goes up when someone opens the page, so the reach of the repo is visible at a glance.
