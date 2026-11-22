@@ -99,39 +99,45 @@ for i, (ic, t1, blurb) in enumerate(cards):
 img.save(os.path.join(A, "before.png"))
 
 # ---------------------------------------------------------------- AFTER
-img = Image.new("RGB", (W, H), (20, 18, 14))
+img = Image.new("RGB", (W, H), (251, 249, 244))
 d = ImageDraw.Draw(img)
-CREAM = (242, 238, 228); MUT = (168, 160, 144); GOLD = (201, 163, 95); HAIR = (62, 57, 47)
+INK = (38, 34, 25); MUT = (109, 103, 90); GOLD = (169, 139, 79); HAIR = (227, 221, 207); PAPER = (251, 249, 244)
 # nav row
-d.text((MX, NAV_Y), "FIELDNOTES", font=F(INTER, 21), fill=CREAM)
+d.text((MX, NAV_Y), "FIELDNOTES", font=F(INTER, 21), fill=INK)
 r = "Pricing · Sign in"; d.text((W - MX - d.textlength(r, font=F(INTER, 20)), NAV_Y + 1), r, font=F(INTER, 20), fill=MUT)
 d.line([(MX, 92), (W - MX, 92)], fill=HAIR)
 # eyebrow (left, gold, tracked)
-tracked(d, MX, EYEBROW_Y, "FOR TEAMS OF THREE TO THIRTY", F(INTER, 17), GOLD, 4)
-# headline (serif, left)
+tracked(d, MX, 118, "FOR TEAMS OF THREE TO THIRTY", F(INTER, 17), GOLD, 4)
+# headline (large serif, left)
 for i, line in enumerate(["Notes that stay", "out of your way."]):
-    d.text((MX, HEAD_Y + i * 74), line, font=F(SERIF, 66), fill=CREAM)
+    d.text((MX, 152 + i * 92), line, font=F(SERIF, 84), fill=INK)
+# gold stroke under "way." only
+wy = 152 + 92 + 90
+x0 = MX + d.textlength("out of your ", font=F(SERIF, 84))
+x1 = x0 + d.textlength("way.", font=F(SERIF, 84))
+d.line([(x0, wy), (x1, wy)], fill=GOLD, width=4)
 # sub (left)
-for i, line in enumerate(wrap(d, "One quiet place for your team's writing. No feeds, no badges, no AI summaries nobody asked for.", F(INTER, 23), 780)):
-    d.text((MX, SUB_Y + i * 32), line, font=F(INTER, 23), fill=(203, 196, 178))
+for i, line in enumerate(wrap(d, "One quiet place for your team's writing. No feeds, no badges, no AI summaries nobody asked for.", F(INTER, 23), 800)):
+    d.text((MX, 356 + i * 33), line, font=F(INTER, 23), fill=(76, 70, 56))
 # CTA row
 b = "Start free"; f1 = F(INTER, 21)
 w1 = d.textlength(b, font=f1) + 52
-d.rectangle([MX, CTA_Y, MX + w1, CTA_Y + 54], fill=GOLD)
-d.text((MX + 26, CTA_Y + 15), b, font=f1, fill=(24, 21, 15))
-d.text((MX + w1 + 20, CTA_Y + 17), "14 days, no card", font=F(INTER, 19), fill=MUT)
-# feature row: three quiet columns, hairline on top, no boxes
-d.line([(MX, FEAT_Y), (W - MX, FEAT_Y)], fill=HAIR)
-feats = [("Instant search", "Any note, found as you type. No folders to keep tidy."),
-         ("Private by default", "Your writing stays yours. Export everything, anytime."),
-         ("Quiet by design", "Nothing competes for your attention. It just holds notes.")]
+d.rectangle([MX, 448, MX + w1, 448 + 54], fill=INK)
+d.text((MX + 26, 448 + 15), b, font=f1, fill=PAPER)
+d.text((MX + w1 + 20, 448 + 17), "14 days, no card", font=F(INTER, 19), fill=MUT)
+# feature row: numbered editorial index, hairline on top
+FY = 556
+d.line([(MX, FY), (W - MX, FY)], fill=HAIR)
+feats = [("01", "Instant search", "Any note, found as you type. No folders to keep tidy."),
+         ("02", "Private by default", "Your writing stays yours. Export everything, anytime."),
+         ("03", "Quiet by design", "Nothing competes for your attention. It just holds notes.")]
 cw = (W - 2 * MX - 2 * 22) // 3
-for i, (t1, blurb) in enumerate(feats):
+for i, (num, t1, blurb) in enumerate(feats):
     x = MX + i * (cw + 22)
-    d.text((x, FEAT_Y + 26), t1, font=F(INTER, 22), fill=CREAM)
+    d.text((x, FY + 22), num, font=F(SERIFI, 24), fill=GOLD)
+    d.text((x, FY + 56), t1, font=F(INTER, 22), fill=INK)
     for j, line in enumerate(wrap(d, blurb, F(INTER, 16), cw - 30)):
-        d.text((x, FEAT_Y + 62 + j * 23), line, font=F(INTER, 16), fill=MUT)
-d.text((MX, H - 44), "4,100 teams switched this spring.", font=F(SERIFI, 19), fill=MUT)
+        d.text((x, FY + 92 + j * 23), line, font=F(INTER, 16), fill=MUT)
 img.save(os.path.join(A, "after.png"))
 
 # combined

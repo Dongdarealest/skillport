@@ -1,5 +1,9 @@
 # Release notes
 
+## v0.2.8
+
+The after panel earns its place now. The earlier version mistook empty for calm: the redesigned after is a proper editorial page, warm paper, a large serif headline with one gold stroke, and a numbered index instead of icon cards. Next to it, the before reads exactly like what it is, a template.
+
 ## v0.2.7
 
 The comparison is honest now, and the site is leaner.
