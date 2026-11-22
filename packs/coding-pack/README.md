@@ -2,11 +2,13 @@
 
 Three skills that make your AI review, commit and document like a senior engineer.
 
+**[Download the whole pack as a ZIP](coding-pack.zip)** and unzip it, or browse the folders below.
+
 ## Inside
 
-- **code-review**
-- **commit-craft**
-- **readme-craft**
+- **code-review**: Reviews a diff or a pull request for correctness first and style last.
+- **commit-craft**: Writes commit messages and pull request descriptions that explain why a change exists, not only what it does.
+- **readme-craft**: Writes or rewrites a project README so a stranger understands what the project is, why it exists and how to run it within one screen.
 
 ## Install
 

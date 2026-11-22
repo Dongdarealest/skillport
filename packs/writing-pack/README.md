@@ -2,11 +2,13 @@
 
 Three skills that make your AI write like a person.
 
+**[Download the whole pack as a ZIP](writing-pack.zip)** and unzip it, or browse the folders below.
+
 ## Inside
 
-- **clear-writing**
-- **headline-hook**
-- **warm-email**
+- **clear-writing**: Rewrites drafts so they read like a person wrote them.
+- **headline-hook**: Writes headlines and opening lines that earn the next ten seconds of attention without clickbait.
+- **warm-email**: Writes short, human emails for cold outreach, follow-ups and replies that should sound like a person, not a template.
 
 ## Install
 

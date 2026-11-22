@@ -2,11 +2,13 @@
 
 Three skills that give your AI a designer's eye.
 
+**[Download the whole pack as a ZIP](design-pack.zip)** and unzip it, or browse the folders below.
+
 ## Inside
 
-- **color-system**
-- **hero-section**
-- **interface-craft**
+- **color-system**: Builds a small, disciplined color palette for an interface or brand: tinted neutrals, one accent, and the rules for where each may appear.
+- **hero-section**: Designs the first screen of a landing page so a stranger understands the product in five seconds.
+- **interface-craft**: Reviews a screen and fixes the craft details that make software feel designed: spacing rhythm, type hierarchy, color discipline and icon consistency.
 
 ## Install
 

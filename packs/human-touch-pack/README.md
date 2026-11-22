@@ -2,11 +2,13 @@
 
 Three skills that make anything your AI produces look human-made, not generated.
 
+**[Download the whole pack as a ZIP](human-touch-pack.zip)** and unzip it, or browse the folders below.
+
 ## Inside
 
-- **anti-slop-design**
-- **human-voice**
-- **make-it-real**
+- **anti-slop-design**: Designs interfaces and pages that do not look AI-generated: no purple gradient hero, no identical card grid, no default typeface at default sizes.
+- **human-voice**: Rewrites AI-generated text so it reads like a specific person wrote it: no filler openings, no buzzwords, no identical sentence rhythm.
+- **make-it-real**: Forces any AI output to be specific instead of generic: real numbers, named examples, concrete details and a stated point of view.
 
 ## Install
 

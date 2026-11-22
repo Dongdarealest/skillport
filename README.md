@@ -1,10 +1,12 @@
 # SkillPort
 
+![Release](https://img.shields.io/badge/release-v0.2.0-C9A35F) ![License](https://img.shields.io/badge/license-MIT-C9A35F) ![Platforms](https://img.shields.io/badge/platforms-Claude%20%C2%B7%20Muse%20%C2%B7%20Cursor%20%C2%B7%20Codex%20%C2%B7%20ChatGPT-C9A35F) ![Skills](https://img.shields.io/badge/skills-12-C9A35F)
+
 **Your AI is running bare. Give it skills.**
 
 Everyone is talking about AI skills: the add-ons that turn a general chatbot into a designer, a writer, a reviewer. But each platform keeps its own format, so a skill written for one AI will not install on another, and most people give up at the folder full of YAML.
 
-SkillPort fixes that. It is a store of ready-made skill packs that work on **Claude, Muse, Cursor, Codex and ChatGPT**. Pick a pack, pick your AI, install in about a minute. Every pack ships pre-converted for all five platforms. No converting, no file surgery.
+SkillPort fixes that. It is a store of ready-made skill packs that work on **Claude, Muse, Cursor, Codex and ChatGPT**. Pick a pack, pick your AI, install in about a minute. Every pack is also a single ZIP download inside its folder. Every pack ships pre-converted for all five platforms. No converting, no file surgery.
 
 **Live demo:** https://dongdarealest.github.io/skillport/
 

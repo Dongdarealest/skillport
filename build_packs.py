@@ -40,7 +40,14 @@ for pack, (title, blurb) in PACKS.items():
         shutil.copy(os.path.join(tmp, "chatgpt", "instructions.txt"), os.path.join(pdir, "for-chatgpt", f"{skill}.txt"))
     os.makedirs(os.path.join(pdir, "for-codex"), exist_ok=True)
     open(os.path.join(pdir, "for-codex", "AGENTS.md"), "w").write("\n---\n\n".join(codex_sections))
-    listing = "\n".join(f"- **{s}**" for s in skills)
+    def desc_of(skill):
+        txt = open(os.path.join(pdir, "skills", skill, "SKILL.md")).read()
+        for line in txt.splitlines():
+            if line.startswith("description:"):
+                d = line[len("description:"):].strip()
+                return d.split(". ")[0].rstrip(".") + "."
+        return ""
+    listing = "\n".join(f"- **{s}**: {desc_of(s)}" for s in skills)
     open(os.path.join(pdir, "README.md"), "w").write(f"# {title}\n\n{blurb}\n\n## Inside\n\n{listing}\n\n{INSTALL}")
     print(pack, "built:", skills)
 print("PACKS BUILT")
