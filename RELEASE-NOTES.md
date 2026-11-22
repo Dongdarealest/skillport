@@ -1,5 +1,9 @@
 # Release notes
 
+## v0.2.9
+
+The comparison is now one page in two executions everywhere, site included: the after panel on the website mirrors the before panel slot for slot, centered hero, pill buttons, three icon cards, with the craft carried by typography, palette, and copy.
+
 ## v0.2.8
 
 The after panel earns its place now. The earlier version mistook empty for calm: the redesigned after is a proper editorial page, warm paper, a large serif headline with one gold stroke, and a numbered index instead of icon cards. Next to it, the before reads exactly like what it is, a template.

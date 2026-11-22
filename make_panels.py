@@ -99,45 +99,58 @@ for i, (ic, t1, blurb) in enumerate(cards):
 img.save(os.path.join(A, "before.png"))
 
 # ---------------------------------------------------------------- AFTER
+# Same wireframe as BEFORE, coordinate for coordinate. Only the craft differs.
 img = Image.new("RGB", (W, H), (251, 249, 244))
 d = ImageDraw.Draw(img)
-INK = (38, 34, 25); MUT = (109, 103, 90); GOLD = (169, 139, 79); HAIR = (227, 221, 207); PAPER = (251, 249, 244)
+INK = (38, 34, 25); MUT = (109, 103, 90); GOLD = (169, 139, 79); HAIR = (227, 221, 207)
+d.rectangle([0, 470, W, H], fill=(243, 239, 228))
 # nav row
 d.text((MX, NAV_Y), "FIELDNOTES", font=F(INTER, 21), fill=INK)
 r = "Pricing · Sign in"; d.text((W - MX - d.textlength(r, font=F(INTER, 20)), NAV_Y + 1), r, font=F(INTER, 20), fill=MUT)
-d.line([(MX, 92), (W - MX, 92)], fill=HAIR)
-# eyebrow (left, gold, tracked)
-tracked(d, MX, 118, "FOR TEAMS OF THREE TO THIRTY", F(INTER, 17), GOLD, 4)
-# headline (large serif, left)
+# eyebrow (centered, gold)
+e = "FOR TEAMS OF THREE TO THIRTY"
+tw = sum(d.textlength(ch, font=F(INTER, 18)) + 5 for ch in e) - 5
+tracked(d, (W - tw) / 2, EYEBROW_Y, e, F(INTER, 18), GOLD, 5)
+# headline (centered, serif)
 for i, line in enumerate(["Notes that stay", "out of your way."]):
-    d.text((MX, 152 + i * 92), line, font=F(SERIF, 84), fill=INK)
-# gold stroke under "way." only
-wy = 152 + 92 + 90
-x0 = MX + d.textlength("out of your ", font=F(SERIF, 84))
-x1 = x0 + d.textlength("way.", font=F(SERIF, 84))
-d.line([(x0, wy), (x1, wy)], fill=GOLD, width=4)
-# sub (left)
-for i, line in enumerate(wrap(d, "One quiet place for your team's writing. No feeds, no badges, no AI summaries nobody asked for.", F(INTER, 23), 800)):
-    d.text((MX, 356 + i * 33), line, font=F(INTER, 23), fill=(76, 70, 56))
-# CTA row
-b = "Start free"; f1 = F(INTER, 21)
-w1 = d.textlength(b, font=f1) + 52
-d.rectangle([MX, 448, MX + w1, 448 + 54], fill=INK)
-d.text((MX + 26, 448 + 15), b, font=f1, fill=PAPER)
-d.text((MX + w1 + 20, 448 + 17), "14 days, no card", font=F(INTER, 19), fill=MUT)
-# feature row: numbered editorial index, hairline on top
-FY = 556
-d.line([(MX, FY), (W - MX, FY)], fill=HAIR)
-feats = [("01", "Instant search", "Any note, found as you type. No folders to keep tidy."),
-         ("02", "Private by default", "Your writing stays yours. Export everything, anytime."),
-         ("03", "Quiet by design", "Nothing competes for your attention. It just holds notes.")]
+    fnt = F(SERIF, 72)
+    d.text(((W - d.textlength(line, font=fnt)) / 2, HEAD_Y + i * 80), line, font=fnt, fill=INK)
+# sub (centered)
+for i, line in enumerate(wrap(d, "One quiet place for your team's writing. No feeds, no badges, no AI summaries nobody asked for.", F(INTER, 23), 780)):
+    d.text(((W - d.textlength(line, font=F(INTER, 23))) / 2, SUB_Y + i * 32), line, font=F(INTER, 23), fill=(76, 70, 56))
+# CTA pair (centered): dark pill + quiet text link, same slots as BEFORE
+b1 = "Start free"; f1 = F(INTER, 21)
+w1 = d.textlength(b1, font=f1) + 56
+b2 = "14 days, no card"; w2 = d.textlength(b2, font=f1)
+x = (W - w1 - 18 - w2) / 2
+d.rounded_rectangle([x, CTA_Y, x + w1, CTA_Y + 54], 27, fill=INK)
+d.text((x + 28, CTA_Y + 15), b1, font=f1, fill=(251, 249, 244))
+d.text((x + w1 + 18, CTA_Y + 15), b2, font=f1, fill=MUT)
+# feature cards: same geometry as BEFORE, paper cards with outline icons
+feats = [("search", "Instant search", "Any note, found as you type. No folders to keep tidy."),
+         ("lock", "Private by default", "Your writing stays yours. Export everything, anytime."),
+         ("moon", "Quiet by design", "Nothing competes for your attention. It just holds notes.")]
 cw = (W - 2 * MX - 2 * 22) // 3
-for i, (num, t1, blurb) in enumerate(feats):
+for i, (ic, t1, blurb) in enumerate(feats):
     x = MX + i * (cw + 22)
-    d.text((x, FY + 22), num, font=F(SERIFI, 24), fill=GOLD)
-    d.text((x, FY + 56), t1, font=F(INTER, 22), fill=INK)
-    for j, line in enumerate(wrap(d, blurb, F(INTER, 16), cw - 30)):
-        d.text((x, FY + 92 + j * 23), line, font=F(INTER, 16), fill=MUT)
+    d.rounded_rectangle([x + 3, FEAT_Y + 4, x + cw + 3, FEAT_Y + FEAT_H + 4], 18, fill=(232, 226, 208))
+    d.rounded_rectangle([x, FEAT_Y, x + cw, FEAT_Y + FEAT_H], 18, fill=(255, 255, 255), outline=HAIR, width=2)
+    cx = x + cw / 2
+    d.ellipse([cx - 33, FEAT_Y + 26, cx + 33, FEAT_Y + 92], outline=GOLD, width=2)
+    if ic == "search":
+        d.ellipse([cx - 11, FEAT_Y + 48, cx + 7, FEAT_Y + 66], outline=INK, width=3)
+        d.line([(cx + 5, FEAT_Y + 64), (cx + 15, FEAT_Y + 74)], fill=INK, width=3)
+    elif ic == "lock":
+        d.arc([cx - 10, FEAT_Y + 44, cx + 10, FEAT_Y + 64], 180, 360, fill=INK, width=3)
+        d.rounded_rectangle([cx - 13, FEAT_Y + 54, cx + 13, FEAT_Y + 76], 4, outline=INK, width=3)
+        d.ellipse([cx - 2, FEAT_Y + 62, cx + 2, FEAT_Y + 66], fill=INK)
+    else:
+        d.ellipse([cx - 12, FEAT_Y + 47, cx + 12, FEAT_Y + 71], outline=INK, width=3)
+        d.ellipse([cx - 4, FEAT_Y + 43, cx + 18, FEAT_Y + 67], fill=(255, 255, 255))
+        d.ellipse([cx - 4, FEAT_Y + 43, cx + 18, FEAT_Y + 67], outline=INK, width=3)
+    tw = d.textlength(t1, font=F(INTER, 22)); d.text((cx - tw / 2, FEAT_Y + 108), t1, font=F(INTER, 22), fill=INK)
+    for j, line in enumerate(wrap(d, blurb, F(INTER, 15), cw - 36)):
+        tw = d.textlength(line, font=F(INTER, 15)); d.text((cx - tw / 2, FEAT_Y + 142 + j * 21), line, font=F(INTER, 15), fill=MUT)
 img.save(os.path.join(A, "after.png"))
 
 # combined
