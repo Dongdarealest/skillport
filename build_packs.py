@@ -6,6 +6,7 @@ PACKS = {
     "design-pack": ("Design Pack", "Three skills that give your AI a designer's eye."),
     "writing-pack": ("Writing Pack", "Three skills that make your AI write like a person."),
     "coding-pack": ("Coding Pack", "Three skills that make your AI review, commit and document like a senior engineer."),
+    "shipsafe-pack": ("ShipSafe Pack", "Three skills that keep other people's instructions from hurting your machine, your accounts or your work."),
 }
 INSTALL = """## Install
 

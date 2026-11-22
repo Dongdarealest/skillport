@@ -1,0 +1,51 @@
+---
+name: backup-before-change
+description: Makes a restore point of your skills, configs and dotfiles before an AI agent edits them, and rolls back cleanly when an edit goes wrong. Use when the user is about to let an AI modify configuration, skills, shell profiles or any setup that took time to tune.
+license: MIT
+---
+
+# Backup Before Change
+
+Agents edit fast, broadly and confidently. A config that took you months to tune can be rewritten in one pass, including the parts nobody mentioned. Undo only exists if a copy was made first, somewhere the agent is not editing. Make the restore point before the session starts, not after something looks wrong.
+
+## Know your surface
+
+List what the agent may touch before it touches anything:
+
+- Skills and rule folders for every AI you use
+- Agent and editor configs, settings files, keybindings
+- Dotfiles: shell profiles, `.gitconfig`, SSH and terminal configs
+- The project files in scope for the session
+
+If you cannot name the surface, the first task is a listing, not an edit.
+
+## Snapshot
+
+Pick one of these, in order of preference:
+
+1. **Git.** Keep configs and skills in a private repo. Before the session: `git add -A && git commit -m "restore point before agent session"`. Every later state is one checkout away.
+2. **Dated copy.** Copy the folders somewhere outside the working area, named with the date and the reason: `cp -R ~/.claude ~/backups/claude-2026-11-22-before-skill-edit`. Outside matters: a backup inside the edited folder gets edited too.
+3. **Archive.** For a whole home setup, one compressed archive of the listed folders, stored on another drive or in cloud storage.
+
+State the snapshot location and the exact restore command out loud, in the chat, before editing begins. A backup nobody can find is not a backup.
+
+## Work in a way that can be undone
+
+- One change at a time. Ask for the smallest edit, then look at the diff before approving the next one.
+- A diff you cannot explain is a rollback candidate, even if things still seem to work.
+- After each change, verify the thing itself: open the app, run the command, load the skill. "The file was updated" is not verification.
+
+## Roll back cleanly
+
+1. Stop the agent. Do not let it "fix" a bad state by editing more of it.
+2. Restore the whole folder from the snapshot rather than hand-repairing individual lines. Hand repairs leave a mix of two states that nobody fully understands.
+3. Verify the restored setup works.
+4. Re-apply only the edits you still want, one at a time, checking each.
+
+## Housekeeping
+
+Keep the last few snapshots and delete older ones on a simple rule, such as one per week for a month. Note in the snapshot name what prompted it, so future you knows which one holds the good state.
+
+## Output
+
+Before any editing: the snapshot location, what it covers, and the restore command. After a rollback: what was restored, what was verified working, and which edits were re-applied.

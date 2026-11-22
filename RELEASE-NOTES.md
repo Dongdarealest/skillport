@@ -1,5 +1,9 @@
 # Release notes
 
+## v0.3.0
+
+A fifth pack joins the store: ShipSafe, three defensive skills for anyone who installs other people's instructions. Vet a pack before it lands, scrub secrets before you share, and keep a restore point before an agent edits. The store now holds five packs and fifteen skills, every one pre-converted for Claude, Cursor, Codex, and ChatGPT.
+
 ## v0.2.10
 
 Adoption polish, found by installing SkillPort the way a stranger would. The installers no longer offer a target the packs do not ship, and the Support section now uses proper sponsor buttons instead of bare links.
