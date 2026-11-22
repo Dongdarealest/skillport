@@ -9,10 +9,10 @@ jobs:
         with:
           node-version: "20"
       - run: npm test
-      - name: Check every pack ships all five targets
+      - name: Check every pack ships all four targets
         run: |
           for p in packs/*/; do
-            for t in for-claude for-muse for-cursor for-codex for-chatgpt; do
+            for t in for-claude for-cursor for-codex for-chatgpt; do
               test -d "$p$t" || { echo "MISSING $p$t"; exit 1; }
             done
           done

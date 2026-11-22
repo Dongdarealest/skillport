@@ -1,5 +1,13 @@
 # Release notes
 
+## v0.2.7
+
+The comparison is honest now, and the site is leaner.
+
+- The before and after demo is rebuilt as one page in two executions: the same Fieldnotes landing page, slot for slot, once as generic AI output and once with the Human Touch Pack loaded. Same nav, same headline slot, same feature row, only the craft differs.
+- The share-card builder is removed from the site. It asked visitors to do work that earned them nothing.
+- A Support section joins the README, and the funding file now points at the live Ko-fi page.
+
 ## v0.1.0 · 2026-11-22
 
 The store opens.

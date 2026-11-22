@@ -489,56 +489,14 @@
     font-family:Georgia, "Times New Roman", serif; font-style:italic;
     font-size:15px; line-height:1.5; color:#3a352a;
   }
-  /* Show your setup */
-  .setup{
-    margin-top:20px;
-    background:var(--surface);
-    border:1px solid var(--border);
-    border-radius:var(--radius);
-    padding:20px;
-  }
-  .setup h2{ margin:0 0 4px; font-size:16px; letter-spacing:-0.01em; }
-  .setup > p{ margin:0 0 16px; color:var(--muted); font-size:13.5px; max-width:620px; }
-  .setup-grid{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.15fr); gap:22px; align-items:start; }
-  @media (max-width: 900px){ .setup-grid{ grid-template-columns:minmax(0,1fr); } }
-  .setup-legend{ font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:var(--faint); font-weight:650; margin:0 0 8px; }
-  .setup-opts{ display:flex; flex-direction:column; gap:8px; margin:0 0 16px; }
-  .setup-opt{
-    display:flex; align-items:center; gap:11px;
-    min-height:44px; padding:9px 12px;
-    border:1px solid var(--border); border-radius:8px;
-    background:var(--surface-2); cursor:pointer; font-size:14px; font-weight:550;
-  }
-  .setup-opt input{ width:18px; height:18px; accent-color:var(--accent); flex:none; margin:0; }
-  .setup-opt .opt-tag{ margin-left:auto; font-family:var(--mono); font-size:11px; color:var(--faint); }
-  .setup-ai-row{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
-  .setup-ai-row label{ font-size:13.5px; color:var(--muted); font-weight:600; }
-  .setup-ai-row select{
-    min-height:40px; padding:8px 12px;
-    border:1px solid var(--border-strong); border-radius:8px;
-    background:var(--surface); color:var(--text);
-    font-family:inherit; font-size:14px; font-weight:550;
-  }
-  .share-card{
-    background:#15181a; color:#f2f0ea;
-    border-radius:12px; padding:26px 26px 22px;
-    display:flex; flex-direction:column; gap:0;
-  }
-  .share-card .sc-brand{ font-family:var(--mono); font-size:12px; letter-spacing:0.2em; color:#9aa39d; display:flex; align-items:center; gap:8px; }
-  .share-card .sc-brand .sc-dot{ width:8px; height:8px; border-radius:50%; background:#2dd4bf; flex:none; }
-  .share-card h3{ margin:16px 0 0; font-size:27px; line-height:1.15; letter-spacing:-0.02em; font-weight:750; }
-  .share-card h3 span{ color:#2dd4bf; }
-  .sc-packs{ list-style:none; margin:16px 0 0; padding:0; display:flex; flex-wrap:wrap; gap:7px; }
-  .sc-packs li{
-    font-family:var(--mono); font-size:12.5px;
-    border:1px solid #3a4043; border-radius:999px; padding:5px 11px; color:#e8e6df;
-  }
-  .sc-packs li.sc-none{ border-style:dashed; color:#9aa39d; }
-  .sc-ai{ margin:16px 0 0; font-size:14px; color:#c9cdc9; }
-  .sc-ai strong{ color:#f2f0ea; }
-  .sc-line{ margin:18px 0 0; padding-top:14px; border-top:1px solid #2c3134; font-family:Georgia, "Times New Roman", serif; font-style:italic; font-size:16px; color:#f2f0ea; }
-  .setup-actions{ margin-top:14px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
-  .setup-hint{ font-size:12.5px; color:var(--faint); }
+  .mock-before-nav{ display:flex; justify-content:space-between; align-items:center; font-size:12px; margin:0 0 26px; }
+  .mock-before-nav strong{ letter-spacing:0.18em; font-size:12.5px; }
+  .mock-before-nav span{ opacity:0.85; }
+  .mock-after-eyebrow{ margin:18px 0 0; font-size:10.5px; letter-spacing:0.14em; color:#8a8271; }
+  .mock-after-cards{ display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:14px; margin-top:auto; padding-top:18px; border-top:1px solid #e3ddcf; }
+  @media (max-width: 480px){ .mock-after-cards{ grid-template-columns:minmax(0,1fr); } }
+  .mock-after-card h4{ margin:0 0 4px; font-size:12.5px; color:#262219; }
+  .mock-after-card p{ margin:0; font-size:11.5px; line-height:1.5; color:#6d675a; }
   /* Converter heading */
   .converter-head{
     margin:36px 0 16px;
@@ -586,8 +544,9 @@
       <div class="mock before">
         <div class="mock-label"><span><strong>BEFORE</strong> · BARE AI</span><span>no skills loaded</span></div>
         <div class="mock-before-hero">
-          <p class="mock-before-eyebrow">INTRODUCING INNOVATEHUB 2.0</p>
-          <h3>Unlock the Power of Seamless Innovation</h3>
+          <div class="mock-before-nav"><strong>FIELDNOTES</strong><span>Pricing · Sign in</span></div>
+          <p class="mock-before-eyebrow">INTRODUCING FIELDNOTES 2.0</p>
+          <h3>Unlock the Power of Seamless Note-Taking</h3>
           <p class="mock-before-sub">Leverage our robust, cutting-edge platform to elevate your workflow and delve into next-level productivity.</p>
           <div class="mock-before-btns">
             <span class="mock-btn-solid">Get Started Free</span>
@@ -617,16 +576,28 @@
         <div class="mock-after-body">
           <div class="mock-after-top">
             <span class="mock-after-brand">FIELDNOTES</span>
-            <span class="mock-after-label">FOR TEAMS OF THREE TO THIRTY</span>
+            <span class="mock-after-label">Pricing · Sign in</span>
           </div>
+          <p class="mock-after-eyebrow">FOR TEAMS OF THREE TO THIRTY</p>
           <h3>Notes that stay out of your way.</h3>
           <p class="mock-after-copy">Fieldnotes keeps your team's writing in one quiet place. No feeds, no badges, no AI summaries nobody asked for. 4,100 teams switched this spring.</p>
           <div class="mock-after-cta">
             <span class="mock-after-btn">Start free</span>
             <span class="mock-after-note">14 days, no card</span>
           </div>
-          <div class="mock-after-quote">
-            <p>“We deleted three apps the week we adopted it.”</p>
+          <div class="mock-after-cards">
+            <div class="mock-after-card">
+              <h4>Instant search</h4>
+              <p>Any note, found as you type. No folders to keep tidy.</p>
+            </div>
+            <div class="mock-after-card">
+              <h4>Private by default</h4>
+              <p>Your writing stays yours. Export everything, anytime.</p>
+            </div>
+            <div class="mock-after-card">
+              <h4>Quiet by design</h4>
+              <p>Nothing competes for your attention. It just holds notes.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -765,44 +736,6 @@
     </div>
   </section>
 
-  <section class="setup" aria-labelledby="setup-title">
-    <h2 id="setup-title">Show your setup</h2>
-    <p>Running SkillPort already? Build your card and post it — it takes ten seconds and tells the world your AI isn't running bare.</p>
-    <div class="setup-grid">
-      <div>
-        <p class="setup-legend" id="setup-packs-legend">Packs you use</p>
-        <div class="setup-opts" role="group" aria-labelledby="setup-packs-legend">
-          <label class="setup-opt"><input type="checkbox" class="setup-pack" value="Human Touch Pack" checked /> Human Touch Pack <span class="opt-tag">flagship</span></label>
-          <label class="setup-opt"><input type="checkbox" class="setup-pack" value="Design Pack" /> Design Pack</label>
-          <label class="setup-opt"><input type="checkbox" class="setup-pack" value="Writing Pack" /> Writing Pack</label>
-          <label class="setup-opt"><input type="checkbox" class="setup-pack" value="Coding Pack" /> Coding Pack</label>
-        </div>
-        <div class="setup-ai-row">
-          <label for="setup-ai">Runs on</label>
-          <select id="setup-ai">
-            <option>Claude</option>
-            <option>Muse</option>
-            <option>Cursor</option>
-            <option>Codex</option>
-            <option>ChatGPT</option>
-          </select>
-        </div>
-      </div>
-      <div>
-        <div class="share-card" id="share-card">
-          <div class="sc-brand"><span class="sc-dot"></span> SKILLPORT</div>
-          <h3>MY AI RUNS <span>SKILLPORT</span></h3>
-          <ul class="sc-packs" id="sc-packs"></ul>
-          <p class="sc-ai">Running on <strong id="sc-ai">Claude</strong></p>
-          <p class="sc-line">Not running bare.</p>
-        </div>
-        <div class="setup-actions">
-          <button class="btn btn-primary" id="download-card" type="button">Download PNG</button>
-          <span class="setup-hint">1200 × 630 — sized for X, LinkedIn and GitHub.</span>
-        </div>
-      </div>
-    </div>
-  </section>
 </main>
 
 <footer>
@@ -1146,119 +1079,5 @@
 })();
 </script>
 
-<script>
-(function(){
-  "use strict";
-
-  var packBoxes = Array.prototype.slice.call(document.querySelectorAll(".setup-pack"));
-  var aiSelect = document.getElementById("setup-ai");
-  var scPacks = document.getElementById("sc-packs");
-  var scAi = document.getElementById("sc-ai");
-  var downloadBtn = document.getElementById("download-card");
-
-  function chosenPacks(){
-    return packBoxes.filter(function(b){ return b.checked; }).map(function(b){ return b.value; });
-  }
-
-  function renderCard(){
-    var packs = chosenPacks();
-    scPacks.innerHTML = "";
-    if (!packs.length){
-      var li = document.createElement("li");
-      li.className = "sc-none";
-      li.textContent = "no packs yet — tick one";
-      scPacks.appendChild(li);
-    } else {
-      packs.forEach(function(p){
-        var li = document.createElement("li");
-        li.textContent = p;
-        scPacks.appendChild(li);
-      });
-    }
-    scAi.textContent = aiSelect.value;
-  }
-
-  packBoxes.forEach(function(b){ b.addEventListener("change", renderCard); });
-  aiSelect.addEventListener("change", renderCard);
-  renderCard();
-
-  function roundRect(ctx, x, y, w, h, r){
-    ctx.beginPath();
-    ctx.moveTo(x + r, y);
-    ctx.arcTo(x + w, y, x + w, y + h, r);
-    ctx.arcTo(x + w, y + h, x, y + h, r);
-    ctx.arcTo(x, y + h, x, y, r);
-    ctx.arcTo(x, y, x + w, y, r);
-    ctx.closePath();
-  }
-
-  downloadBtn.addEventListener("click", function(){
-    var W = 1200, H = 630;
-    var canvas = document.createElement("canvas");
-    canvas.width = W; canvas.height = H;
-    var ctx = canvas.getContext("2d");
-    var packs = chosenPacks();
-    var ai = aiSelect.value;
-    var SANS = "-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif";
-    var MONO = "ui-monospace, Menlo, Consolas, monospace";
-    var SERIF = "Georgia, 'Times New Roman', serif";
-
-    ctx.fillStyle = "#15181a";
-    ctx.fillRect(0, 0, W, H);
-
-    // Brand row
-    ctx.fillStyle = "#2dd4bf";
-    ctx.beginPath(); ctx.arc(84, 84, 9, 0, Math.PI * 2); ctx.fill();
-    ctx.fillStyle = "#9aa39d";
-    ctx.font = "600 24px " + MONO;
-    ctx.fillText("S K I L L P O R T", 112, 93);
-
-    // Headline
-    ctx.fillStyle = "#f2f0ea";
-    ctx.font = "750 76px " + SANS;
-    ctx.fillText("MY AI RUNS", 72, 208);
-    ctx.fillStyle = "#2dd4bf";
-    ctx.fillText("SKILLPORT", 72, 296);
-
-    // Pack pills
-    var label = packs.length ? packs.join("  ·  ") : "No packs yet";
-    ctx.font = "26px " + MONO;
-    var pillW = Math.min(ctx.measureText(label).width + 56, W - 144);
-    ctx.strokeStyle = "#3a4043";
-    ctx.lineWidth = 2;
-    roundRect(ctx, 72, 344, pillW, 58, 29);
-    ctx.stroke();
-    ctx.fillStyle = "#e8e6df";
-    ctx.save();
-    ctx.beginPath(); roundRect(ctx, 72, 344, pillW, 58, 29); ctx.clip();
-    ctx.fillText(label, 100, 383);
-    ctx.restore();
-
-    // AI line
-    ctx.font = "30px " + SANS;
-    ctx.fillStyle = "#c9cdc9";
-    ctx.fillText("Running on ", 72, 472);
-    var w1 = ctx.measureText("Running on ").width;
-    ctx.font = "700 30px " + SANS;
-    ctx.fillStyle = "#f2f0ea";
-    ctx.fillText(ai, 72 + w1, 472);
-
-    // Divider + closing line
-    ctx.strokeStyle = "#2c3134";
-    ctx.lineWidth = 2;
-    ctx.beginPath(); ctx.moveTo(72, 528); ctx.lineTo(W - 72, 528); ctx.stroke();
-    ctx.fillStyle = "#f2f0ea";
-    ctx.font = "italic 34px " + SERIF;
-    ctx.fillText("Not running bare.", 72, 582);
-
-    var a = document.createElement("a");
-    a.download = "my-ai-runs-skillport.png";
-    a.href = canvas.toDataURL("image/png");
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-  });
-})();
-</script>
 </body>
 </html>

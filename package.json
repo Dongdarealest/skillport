@@ -1,13 +1,17 @@
 {
   "name": "skillport",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "Your AI is running bare. Give it skills. Ready-made skill packs that install on Claude, Muse, Cursor, Codex and ChatGPT.",
   "type": "module",
-  "bin": { "skillport": "src/skillport.mjs" },
+  "bin": {
+    "skillport": "src/skillport.mjs"
+  },
   "scripts": {
     "test": "node --test test/convert.test.mjs",
     "build-packs": "python3 build_packs.py"
   },
   "license": "MIT",
-  "engines": { "node": ">=18" }
+  "engines": {
+    "node": ">=18"
+  }
 }
