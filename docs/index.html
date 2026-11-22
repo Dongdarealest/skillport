@@ -1,0 +1,781 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="data:," />
+<title>SkillPort — Write a skill once. Run it on every AI.</title>
+<style>
+  :root{
+    --bg:#f7f7f5;
+    --surface:#ffffff;
+    --surface-2:#f1f1ee;
+    --border:#e2e2dc;
+    --border-strong:#cfcfc6;
+    --text:#1a1d1a;
+    --muted:#5f6660;
+    --faint:#8a918a;
+    --accent:#0f766e;
+    --accent-hover:#0b5f58;
+    --accent-soft:#e6f2f0;
+    --warn-bg:#fdf6e3;
+    --warn-border:#e8d48a;
+    --warn-text:#6b5410;
+    --code-bg:#fafaf8;
+    --tab-active-bg:#ffffff;
+    --radius:10px;
+    --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#121413;
+      --surface:#1a1c1b;
+      --surface-2:#222524;
+      --border:#2e3230;
+      --border-strong:#3d423f;
+      --text:#eceeec;
+      --muted:#a7ada7;
+      --faint:#7d847d;
+      --accent:#2dd4bf;
+      --accent-hover:#5eead4;
+      --accent-soft:#12312d;
+      --warn-bg:#2b2410;
+      --warn-border:#6b5a1e;
+      --warn-text:#e8d48a;
+      --code-bg:#141615;
+      --tab-active-bg:#1a1c1b;
+    }
+  }
+  html{ box-sizing:border-box; }
+  *, *::before, *::after{ box-sizing:inherit; }
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--sans);
+    font-size:15px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  button{ font-family:inherit; cursor:pointer; }
+  /* Header */
+  .site-head{
+    border-bottom:1px solid var(--border);
+    background:var(--surface);
+  }
+  .site-head-inner{
+    max-width:1240px;
+    margin:0 auto;
+    padding:28px 24px 24px;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:16px 32px;
+  }
+  .brand h1{
+    margin:0;
+    font-size:32px;
+    line-height:1.1;
+    letter-spacing:-0.03em;
+    font-weight:750;
+  }
+  .brand h1 span{ color:var(--accent); }
+  .tagline{
+    margin:6px 0 0;
+    font-size:16px;
+    color:var(--muted);
+    letter-spacing:-0.01em;
+  }
+  .head-meta{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    align-items:center;
+    padding-bottom:2px;
+  }
+  .chip{
+    font-family:var(--mono);
+    font-size:12px;
+    padding:5px 9px;
+    border:1px solid var(--border);
+    border-radius:999px;
+    color:var(--muted);
+    background:var(--surface-2);
+    white-space:nowrap;
+  }
+  .chip strong{ color:var(--text); font-weight:600; }
+  /* Layout */
+  .wrap{
+    max-width:1240px;
+    margin:0 auto;
+    padding:24px 24px 48px;
+  }
+  .how{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px 20px;
+    align-items:center;
+    margin:0 0 20px;
+    color:var(--muted);
+    font-size:13.5px;
+  }
+  .how-step{ display:flex; align-items:center; gap:8px; }
+  .how-num{
+    width:22px; height:22px; border-radius:50%;
+    background:var(--accent); color:#fff;
+    font-size:12px; font-weight:700;
+    display:inline-flex; align-items:center; justify-content:center;
+    flex:none;
+  }
+  @media (prefers-color-scheme: dark){ .how-num{ color:#0b1514; } }
+  .how-arrow{ color:var(--faint); }
+  .grid{
+    display:grid;
+    grid-template-columns:minmax(0, 1fr) minmax(0, 1.15fr);
+    gap:20px;
+    align-items:start;
+  }
+  @media (max-width: 900px){
+    .grid{ grid-template-columns:minmax(0,1fr); }
+    .site-head-inner{ padding:22px 18px 20px; }
+    .wrap{ padding:18px 14px 36px; }
+    .brand h1{ font-size:28px; }
+  }
+  .panel{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    overflow:hidden;
+  }
+  .panel-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    padding:13px 16px;
+    border-bottom:1px solid var(--border);
+    background:var(--surface);
+  }
+  .panel-title{
+    margin:0;
+    font-size:13px;
+    font-weight:650;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--muted);
+    display:flex; align-items:center; gap:8px;
+  }
+  .panel-title .dot{ width:8px; height:8px; border-radius:50%; background:var(--accent); flex:none; }
+  .panel-sub{ font-size:12.5px; color:var(--faint); font-family:var(--mono); }
+  /* Input */
+  textarea{
+    width:100%;
+    display:block;
+    border:0;
+    outline:none;
+    resize:vertical;
+    min-height:480px;
+    padding:16px;
+    font-family:var(--mono);
+    font-size:13.5px;
+    line-height:1.65;
+    background:var(--code-bg);
+    color:var(--text);
+    tab-size:2;
+  }
+  textarea:focus{ box-shadow:inset 0 0 0 2px var(--accent); }
+  .input-foot{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    align-items:center;
+    justify-content:space-between;
+    padding:12px 16px;
+    border-top:1px solid var(--border);
+  }
+  .input-actions{ display:flex; gap:8px; flex-wrap:wrap; }
+  .btn{
+    min-height:40px;
+    padding:9px 18px;
+    border-radius:8px;
+    border:1px solid transparent;
+    font-size:14px;
+    font-weight:600;
+    display:inline-flex; align-items:center; gap:8px;
+  }
+  .btn-primary{ background:var(--accent); color:#fff; }
+  .btn-primary:hover{ background:var(--accent-hover); }
+  @media (prefers-color-scheme: dark){ .btn-primary{ color:#0b1514; } .btn-primary:hover{ color:#0b1514; } }
+  .btn-ghost{ background:transparent; color:var(--muted); border-color:var(--border-strong); }
+  .btn-ghost:hover{ color:var(--text); background:var(--surface-2); }
+  .parse-status{ font-size:13px; color:var(--muted); font-family:var(--mono); }
+  .parse-status.ok{ color:var(--accent); }
+  .parse-status.err{ color:#b42318; }
+  @media (prefers-color-scheme: dark){ .parse-status.err{ color:#f97066; } }
+  /* Parsed summary */
+  .parsed{
+    border-top:1px solid var(--border);
+    padding:12px 16px 14px;
+    display:none;
+  }
+  .parsed.show{ display:block; }
+  .parsed h3{ margin:0 0 8px; font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:var(--faint); font-weight:650; }
+  .parsed dl{ margin:0; display:grid; grid-template-columns:110px 1fr; gap:4px 12px; font-size:13px; }
+  .parsed dt{ color:var(--faint); font-family:var(--mono); font-size:12.5px; }
+  .parsed dd{ margin:0; word-break:break-word; }
+  .parsed dd.mono{ font-family:var(--mono); font-size:12.5px; }
+  /* Warning */
+  .warning{
+    display:none;
+    margin:0 0 16px;
+    padding:11px 14px;
+    border:1px solid var(--warn-border);
+    background:var(--warn-bg);
+    color:var(--warn-text);
+    border-radius:8px;
+    font-size:13.5px;
+    line-height:1.5;
+  }
+  .warning.show{ display:block; }
+  .warning strong{ font-weight:700; }
+  .warning code{ font-family:var(--mono); font-size:12.5px; }
+  /* Tabs */
+  .tabs{
+    display:flex;
+    flex-wrap:wrap;
+    gap:2px;
+    padding:8px 8px 0;
+    border-bottom:1px solid var(--border);
+    background:var(--surface-2);
+  }
+  .tab-btn{
+    min-height:40px;
+    padding:9px 14px;
+    border:1px solid transparent;
+    border-bottom:0;
+    border-radius:8px 8px 0 0;
+    background:transparent;
+    color:var(--muted);
+    font-size:13.5px;
+    font-weight:600;
+    display:inline-flex; align-items:center; gap:7px;
+  }
+  .tab-btn:hover{ color:var(--text); }
+  .tab-btn[aria-selected="true"]{
+    background:var(--tab-active-bg);
+    border-color:var(--border);
+    color:var(--text);
+    position:relative;
+    top:1px;
+  }
+  .tab-btn .t-dot{ width:7px; height:7px; border-radius:50%; background:var(--border-strong); flex:none; }
+  .tab-btn[aria-selected="true"] .t-dot{ background:var(--accent); }
+  .tab-panel{ display:none; padding:16px; }
+  .tab-panel.active{ display:block; }
+  .tab-desc{ margin:0 0 14px; font-size:13.5px; color:var(--muted); }
+  .file-block{ margin-bottom:16px; }
+  .file-block:last-child{ margin-bottom:2px; }
+  .file-head{
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+    padding:8px 10px 8px 12px;
+    background:var(--surface-2);
+    border:1px solid var(--border);
+    border-bottom:0;
+    border-radius:8px 8px 0 0;
+  }
+  .file-path{ font-family:var(--mono); font-size:12.5px; color:var(--text); word-break:break-all; font-weight:600; }
+  .copy-btn{
+    min-height:36px;
+    padding:6px 12px;
+    border-radius:6px;
+    border:1px solid var(--border-strong);
+    background:var(--surface);
+    color:var(--text);
+    font-size:12.5px; font-weight:600;
+    flex:none;
+    display:inline-flex; align-items:center; gap:6px;
+  }
+  .copy-btn:hover{ border-color:var(--accent); color:var(--accent); }
+  .copy-btn.copied{ background:var(--accent); border-color:var(--accent); color:#fff; }
+  @media (prefers-color-scheme: dark){ .copy-btn.copied{ color:#0b1514; } }
+  pre.code{
+    margin:0;
+    border:1px solid var(--border);
+    border-radius:0 0 8px 8px;
+    background:var(--code-bg);
+    padding:14px;
+    overflow-x:auto;
+    max-height:560px;
+    overflow-y:auto;
+  }
+  pre.code code{
+    font-family:var(--mono);
+    font-size:13px;
+    line-height:1.65;
+    white-space:pre;
+    color:var(--text);
+  }
+  .empty-state{ padding:28px 16px; text-align:center; color:var(--muted); font-size:14px; }
+  /* Formats strip */
+  .formats{
+    margin-top:20px;
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:18px 20px;
+  }
+  .formats h2{ margin:0 0 4px; font-size:16px; letter-spacing:-0.01em; }
+  .formats > p{ margin:0 0 14px; color:var(--muted); font-size:13.5px; }
+  .format-grid{
+    display:grid;
+    grid-template-columns:repeat(5, 1fr);
+    gap:12px;
+  }
+  @media (max-width: 900px){ .format-grid{ grid-template-columns:repeat(2, 1fr); } }
+  @media (max-width: 480px){ .format-grid{ grid-template-columns:1fr; } }
+  .format-item{ border-top:2px solid var(--border); padding-top:10px; }
+  .format-item.accent-top{ border-top-color:var(--accent); }
+  .format-item h3{ margin:0 0 3px; font-size:14px; }
+  .format-item p{ margin:0; font-size:12.5px; color:var(--muted); line-height:1.5; }
+  .format-item code{ font-family:var(--mono); font-size:11.5px; color:var(--text); word-break:break-all; }
+  footer{
+    max-width:1240px; margin:0 auto; padding:0 24px 32px;
+    color:var(--faint); font-size:12.5px;
+    display:flex; flex-wrap:wrap; gap:6px 16px; justify-content:space-between;
+  }
+  footer .mono{ font-family:var(--mono); }
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="site-head-inner">
+    <div class="brand">
+      <h1>Skill<span>Port</span></h1>
+      <p class="tagline">Write a skill once. Run it on every AI.</p>
+    </div>
+    <div class="head-meta" aria-label="Supported targets">
+      <span class="chip"><strong>1</strong> input</span>
+      <span class="chip"><strong>5</strong> targets</span>
+      <span class="chip">Claude · Muse · Cursor · Codex · ChatGPT</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="how" aria-label="How it works">
+    <span class="how-step"><span class="how-num">1</span> Paste a Claude <span style="font-family:var(--mono); font-size:12.5px;">SKILL.md</span></span>
+    <span class="how-arrow" aria-hidden="true">→</span>
+    <span class="how-step"><span class="how-num">2</span> Convert</span>
+    <span class="how-arrow" aria-hidden="true">→</span>
+    <span class="how-step"><span class="how-num">3</span> Copy the file for each AI</span>
+  </div>
+
+  <div id="warning" class="warning" role="status"></div>
+
+  <div class="grid">
+    <!-- INPUT -->
+    <section class="panel" aria-labelledby="input-title">
+      <div class="panel-head">
+        <h2 class="panel-title" id="input-title"><span class="dot"></span> Input</h2>
+        <span class="panel-sub">SKILL.md · Claude format</span>
+      </div>
+      <label class="sr-only" for="input" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Claude SKILL.md source</label>
+      <textarea id="input" spellcheck="false" aria-describedby="parse-status"></textarea>
+      <div class="input-foot">
+        <div class="input-actions">
+          <button class="btn btn-primary" id="convert-btn" type="button">Convert →</button>
+          <button class="btn btn-ghost" id="reset-btn" type="button">Restore sample</button>
+        </div>
+        <span class="parse-status" id="parse-status"></span>
+      </div>
+      <div class="parsed" id="parsed-box">
+        <h3>Parsed from frontmatter</h3>
+        <dl id="parsed-list"></dl>
+      </div>
+    </section>
+
+    <!-- OUTPUT -->
+    <section class="panel" aria-labelledby="output-title">
+      <div class="panel-head">
+        <h2 class="panel-title" id="output-title"><span class="dot"></span> Output</h2>
+        <span class="panel-sub" id="output-sub">5 formats</span>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Output formats" id="tablist"></div>
+      <div id="panels"></div>
+    </section>
+  </div>
+
+  <section class="formats" aria-labelledby="formats-title">
+    <h2 id="formats-title">What each target expects</h2>
+    <p>The same skill, reshaped to the file layout and metadata each platform actually reads.</p>
+    <div class="format-grid">
+      <div class="format-item accent-top">
+        <h3>Claude</h3>
+        <p><code>SKILL.md</code> with YAML frontmatter. The source format, normalized.</p>
+      </div>
+      <div class="format-item">
+        <h3>Muse</h3>
+        <p><code>SKILL.md</code> for the body plus a <code>skill.yaml</code> manifest with title, category and prompt settings.</p>
+      </div>
+      <div class="format-item">
+        <h3>Cursor</h3>
+        <p><code>.cursor/rules/*.mdc</code> — a rule file with description, globs and <code>alwaysApply</code> frontmatter.</p>
+      </div>
+      <div class="format-item">
+        <h3>Codex</h3>
+        <p>A section inside <code>AGENTS.md</code>, headed by the skill title with its description quoted.</p>
+      </div>
+      <div class="format-item">
+        <h3>ChatGPT</h3>
+        <p>Plain <code>instructions.txt</code> to paste into a custom GPT or project instructions.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span>SkillPort — one skill, every platform.</span>
+  <span class="mono">Claude Skills, now everywhere.</span>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  var SAMPLE = [
+    "---",
+    "name: clear-writing",
+    "description: Rewrite drafts so they read like a person wrote them. Use when a draft sounds stiff, padded, or machine-made and needs a natural human voice without losing the facts.",
+    "license: MIT",
+    "allowed-tools: Read, Edit",
+    "---",
+    "",
+    "# Clear Writing",
+    "",
+    "Rewrite the draft so it reads like a person wrote it. Keep every fact, name, number and commitment exactly as written. Change only how it sounds.",
+    "",
+    "## Rules",
+    "",
+    "- Cut filler openers and throat-clearing. Start with the point.",
+    "- Replace formal, padded phrasing with the words a person would actually say out loud.",
+    "- Vary sentence length. Short sentences are fine. So are longer ones when the idea needs room.",
+    "- Keep the writer's voice and stance. Do not soften opinions or add hedging they did not write.",
+    "- Never invent facts, examples or quotes to make the text flow better.",
+    "- Read the result back in your head. If it still sounds like a template, rewrite it once more.",
+    ""
+  ].join("\n");
+
+  var inputEl = document.getElementById("input");
+  var convertBtn = document.getElementById("convert-btn");
+  var resetBtn = document.getElementById("reset-btn");
+  var statusEl = document.getElementById("parse-status");
+  var warningEl = document.getElementById("warning");
+  var parsedBox = document.getElementById("parsed-box");
+  var parsedList = document.getElementById("parsed-list");
+  var tablistEl = document.getElementById("tablist");
+  var panelsEl = document.getElementById("panels");
+  var outputSub = document.getElementById("output-sub");
+
+  inputEl.value = SAMPLE;
+
+  function stripQuotes(v){
+    v = v.trim();
+    if ((v.charAt(0) === '"' && v.charAt(v.length-1) === '"') ||
+        (v.charAt(0) === "'" && v.charAt(v.length-1) === "'")){
+      return v.slice(1, -1);
+    }
+    return v;
+  }
+
+  function yamlQuote(v){
+    return '"' + String(v).replace(/\\/g, "\\\\").replace(/"/g, '\\"') + '"';
+  }
+
+  function toTitle(name){
+    if (!name) return "Untitled Skill";
+    return name.split(/[-_]+/).filter(Boolean).map(function(w){
+      return w.charAt(0).toUpperCase() + w.slice(1);
+    }).join(" ");
+  }
+
+  function parseSkill(text){
+    var result = { meta: {}, body: "", hasFrontmatter: false, error: null };
+    var trimmed = text.replace(/^\s+/, "");
+    if (trimmed.indexOf("---") !== 0){
+      result.body = text.trim();
+      result.error = "No YAML frontmatter found — add name and description to get full metadata in every target.";
+      return result;
+    }
+    var lines = trimmed.split("\n");
+    var endIdx = -1;
+    for (var i = 1; i < lines.length; i++){
+      if (lines[i].trim() === "---" || lines[i].trim() === "..."){ endIdx = i; break; }
+    }
+    if (endIdx === -1){
+      result.body = text.trim();
+      result.error = "Frontmatter is not closed — add a second --- line after the metadata.";
+      return result;
+    }
+    result.hasFrontmatter = true;
+    var currentKey = null;
+    for (var j = 1; j < endIdx; j++){
+      var line = lines[j];
+      var m = line.match(/^([A-Za-z0-9_-]+):\s*(.*)$/);
+      if (m){
+        currentKey = m[1].toLowerCase();
+        result.meta[currentKey] = stripQuotes(m[2]);
+      } else if (currentKey && /^\s+/.test(line) && line.trim()){
+        // continuation line (folded description)
+        result.meta[currentKey] = (result.meta[currentKey] + " " + line.trim()).trim();
+      }
+    }
+    result.body = lines.slice(endIdx + 1).join("\n").trim();
+    return result;
+  }
+
+  function buildOutputs(meta, body){
+    var name = meta.name || "my-skill";
+    var description = meta.description || "";
+    var license = meta.license || "";
+    var allowedTools = meta["allowed-tools"] || meta["allowed_tools"] || "";
+    var title = toTitle(name);
+
+    // 1 — Claude: normalized SKILL.md
+    var claudeLines = ["---", "name: " + name];
+    if (description) claudeLines.push("description: " + description);
+    if (license) claudeLines.push("license: " + license);
+    if (allowedTools) claudeLines.push("allowed-tools: " + allowedTools);
+    claudeLines.push("---", "", body);
+    var claude = claudeLines.join("\n") + "\n";
+
+    // 2 — Muse: SKILL.md (body only) + skill.yaml
+    var museBody = body + "\n";
+    var museYamlLines = [
+      "name: " + name,
+      "title: " + yamlQuote(title),
+      "description: " + yamlQuote(description),
+      'category: "Work and knowledge"',
+      "include_in_prompt: false"
+    ];
+    if (allowedTools) museYamlLines.push("allowed-tools: " + allowedTools);
+    if (license) museYamlLines.push("license: " + license);
+    var museYaml = museYamlLines.join("\n") + "\n";
+
+    // 3 — Cursor: .cursor/rules/<name>.mdc
+    var cursorLines = ["---", "description: " + description, "globs:", "alwaysApply: false", "---", "", body];
+    var cursor = cursorLines.join("\n") + "\n";
+
+    // 4 — Codex: AGENTS.md section
+    var codex = "## Skill: " + title + "\n\n> " + description + "\n\n" + body + "\n";
+
+    // 5 — ChatGPT: instructions.txt
+    var chatgpt = title.toUpperCase() + "\n\nWhen to use this skill: " + description + "\n\n" + body + "\n";
+
+    return [
+      {
+        id: "claude", label: "Claude",
+        desc: "The source format, normalized — same frontmatter, tidy spacing.",
+        files: [{ path: "SKILL.md", content: claude }]
+      },
+      {
+        id: "muse", label: "Muse",
+        desc: "Two files: the body on its own, and a manifest carrying the metadata Muse reads.",
+        files: [
+          { path: "SKILL.md", content: museBody },
+          { path: "skill.yaml", content: museYaml }
+        ]
+      },
+      {
+        id: "cursor", label: "Cursor",
+        desc: "Drop it into your project's rules folder. It applies on demand, not on every file.",
+        files: [{ path: ".cursor/rules/" + name + ".mdc", content: cursor }]
+      },
+      {
+        id: "codex", label: "Codex",
+        desc: "Paste this section into AGENTS.md at the root of your repo.",
+        files: [{ path: "AGENTS.md", content: codex }]
+      },
+      {
+        id: "chatgpt", label: "ChatGPT",
+        desc: "Plain text, ready to paste into a custom GPT or project instructions.",
+        files: [{ path: "instructions.txt", content: chatgpt }]
+      }
+    ];
+  }
+
+  var activeTab = "claude";
+  var currentOutputs = [];
+
+  function renderTabs(){
+    tablistEl.innerHTML = "";
+    panelsEl.innerHTML = "";
+    currentOutputs.forEach(function(out){
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "tab-btn";
+      btn.setAttribute("role", "tab");
+      btn.id = "tab-" + out.id;
+      btn.setAttribute("aria-selected", out.id === activeTab ? "true" : "false");
+      btn.setAttribute("aria-controls", "panel-" + out.id);
+      var dot = document.createElement("span");
+      dot.className = "t-dot";
+      btn.appendChild(dot);
+      btn.appendChild(document.createTextNode(out.label));
+      btn.addEventListener("click", function(){
+        activeTab = out.id;
+        renderTabs();
+      });
+      tablistEl.appendChild(btn);
+
+      var panel = document.createElement("div");
+      panel.className = "tab-panel" + (out.id === activeTab ? " active" : "");
+      panel.id = "panel-" + out.id;
+      panel.setAttribute("role", "tabpanel");
+      panel.setAttribute("aria-labelledby", "tab-" + out.id);
+
+      var desc = document.createElement("p");
+      desc.className = "tab-desc";
+      desc.textContent = out.desc;
+      panel.appendChild(desc);
+
+      out.files.forEach(function(file){
+        var block = document.createElement("div");
+        block.className = "file-block";
+
+        var head = document.createElement("div");
+        head.className = "file-head";
+        var pathEl = document.createElement("span");
+        pathEl.className = "file-path";
+        pathEl.textContent = file.path;
+        var copyBtn = document.createElement("button");
+        copyBtn.type = "button";
+        copyBtn.className = "copy-btn";
+        copyBtn.textContent = "Copy";
+        copyBtn.addEventListener("click", function(){
+          copyText(file.content, copyBtn);
+        });
+        head.appendChild(pathEl);
+        head.appendChild(copyBtn);
+
+        var pre = document.createElement("pre");
+        pre.className = "code";
+        var code = document.createElement("code");
+        code.textContent = file.content.replace(/\n$/, "");
+        pre.appendChild(code);
+
+        block.appendChild(head);
+        block.appendChild(pre);
+        panel.appendChild(block);
+      });
+
+      panelsEl.appendChild(panel);
+    });
+  }
+
+  function copyText(text, btn){
+    function done(){
+      var old = btn.textContent;
+      btn.textContent = "Copied ✓";
+      btn.classList.add("copied");
+      setTimeout(function(){ btn.textContent = old; btn.classList.remove("copied"); }, 1600);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done, function(){ fallback(); });
+    } else { fallback(); }
+    function fallback(){
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed"; ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); done(); } catch(e){}
+      document.body.removeChild(ta);
+    }
+  }
+
+  function renderParsed(meta){
+    parsedList.innerHTML = "";
+    var rows = [
+      ["name", meta.name],
+      ["description", meta.description],
+      ["license", meta.license],
+      ["allowed-tools", meta["allowed-tools"] || meta["allowed_tools"]]
+    ];
+    var any = false;
+    rows.forEach(function(r){
+      if (!r[1]) return;
+      any = true;
+      var dt = document.createElement("dt"); dt.textContent = r[0];
+      var dd = document.createElement("dd");
+      if (r[0] === "name" || r[0] === "allowed-tools") dd.className = "mono";
+      dd.textContent = r[1];
+      parsedList.appendChild(dt);
+      parsedList.appendChild(dd);
+    });
+    parsedBox.classList.toggle("show", any);
+  }
+
+  function convert(){
+    var parsed = parseSkill(inputEl.value);
+    var meta = parsed.meta;
+    var body = parsed.body || inputEl.value.trim();
+
+    if (parsed.error){
+      statusEl.textContent = "⚠ " + parsed.error;
+      statusEl.className = "parse-status err";
+    } else {
+      var bits = [];
+      if (meta.name) bits.push("name ✓");
+      if (meta.description) bits.push("description ✓");
+      if (parsed.body) bits.push("body ✓");
+      statusEl.textContent = bits.join(" · ");
+      statusEl.className = "parse-status ok";
+    }
+
+    renderParsed(meta);
+    currentOutputs = buildOutputs(meta, body);
+    outputSub.textContent = currentOutputs.reduce(function(n, o){ return n + o.files.length; }, 0) + " files · 5 formats";
+    renderTabs();
+
+    // Warning: allowed-tools
+    var tools = meta["allowed-tools"] || meta["allowed_tools"];
+    if (tools){
+      warningEl.innerHTML = "";
+      var strong = document.createElement("strong");
+      strong.textContent = "Heads up: ";
+      warningEl.appendChild(strong);
+      warningEl.appendChild(document.createTextNode("allowed-tools ("));
+      var code = document.createElement("code");
+      code.textContent = tools;
+      warningEl.appendChild(code);
+      warningEl.appendChild(document.createTextNode(") only applies to the Claude and Muse targets. Cursor, Codex and ChatGPT have no tool-permission field, so it is dropped from those outputs — the skill body itself still converts in full."));
+      warningEl.classList.add("show");
+    } else {
+      warningEl.classList.remove("show");
+      warningEl.innerHTML = "";
+    }
+  }
+
+  convertBtn.addEventListener("click", convert);
+  resetBtn.addEventListener("click", function(){
+    inputEl.value = SAMPLE;
+    activeTab = "claude";
+    convert();
+    inputEl.focus();
+  });
+  // Re-convert as the user edits, debounced lightly via input event (cheap parse)
+  var t = null;
+  inputEl.addEventListener("input", function(){
+    if (t) clearTimeout(t);
+    t = setTimeout(convert, 350);
+  });
+
+  convert();
+})();
+</script>
+</body>
+</html>

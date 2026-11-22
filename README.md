@@ -4,6 +4,8 @@
 
 AI skills are fragmenting. A skill written for Claude does not run on Muse, Cursor, Codex or ChatGPT, because every platform invented its own file layout. SkillPort converts one Claude-style `SKILL.md` into ready-to-use packages for all of them, in one pass.
 
+**Live demo:** https://dongdarealest.github.io/skillport/ — paste a `SKILL.md`, get all five packages in your browser. Nothing is uploaded; conversion runs entirely on your machine.
+
 ## What it does
 
 | Source | Output |

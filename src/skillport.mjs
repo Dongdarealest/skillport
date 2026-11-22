@@ -2,8 +2,18 @@
 // SkillPort: write a skill once, run it on every AI agent.
 // Converts a Claude-style SKILL.md into ready-to-use packages for
 // Muse, Cursor, Codex (AGENTS.md) and ChatGPT (custom instructions).
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
-import { join } from 'node:path';
+import { readFileSync, writeFileSync, mkdirSync, readdirSync, statSync, copyFileSync } from 'node:fs';
+import { join, dirname, relative } from 'node:path';
+
+export function listAssets(skillDir, root = skillDir) {
+  const out = [];
+  for (const entry of readdirSync(skillDir)) {
+    const full = join(skillDir, entry);
+    if (statSync(full).isDirectory()) out.push(...listAssets(full, root));
+    else if (relative(root, full) !== 'SKILL.md') out.push(relative(root, full));
+  }
+  return out;
+}
 
 export function parseSkill(source) {
   const fm = {};
@@ -69,7 +79,17 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     writeFileSync(dest, content);
     console.log('wrote', dest);
   }
-  const manifest = { skill: skill.name, targets: Object.keys(files), warnings, convertedAt: new Date().toISOString() };
-  writeFileSync(join(outDir, 'PORT.md'), `# SkillPort manifest\n\nSkill: ${skill.name}\nTargets: ${Object.keys(files).join(', ')}\n\nWarnings:\n${warnings.map(w => '- ' + w).join('\n') || '- none'}\n`);
+  const skillDir = dirname(input);
+  const assets = listAssets(skillDir);
+  for (const rel of assets) {
+    for (const target of ['claude', 'muse']) {
+      const dest = join(outDir, target, skill.name, rel);
+      mkdirSync(join(dest, '..'), { recursive: true });
+      copyFileSync(join(skillDir, rel), dest);
+    }
+    console.log('asset copied for claude + muse:', rel);
+  }
+  if (assets.length) warnings.push(`Folder assets (${assets.join(', ')}) are copied for the Claude and Muse targets; Cursor, Codex and ChatGPT targets receive instructions only, so move these files by hand if the skill needs them there.`);
+  writeFileSync(join(outDir, 'PORT.md'), `# SkillPort manifest\n\nSkill: ${skill.name}\nTargets: ${Object.keys(files).join(', ')}\nAssets: ${assets.join(', ') || 'none'}\n\nWarnings:\n${warnings.map(w => '- ' + w).join('\n') || '- none'}\n`);
   console.log('warnings:', warnings.length ? warnings.join(' | ') : 'none');
 }
