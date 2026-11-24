@@ -13,7 +13,7 @@ A skill is not a document. It is a set of instructions your AI will follow with 
 Run a scanner before you read a word. It is fast, it is boring, and it catches the loud problems.
 
 1. Download the pack into a holding folder, not into your skills directory.
-2. Run [SkillDoctor](https://github.com/Dongdarealest/skilldoctor) against that folder. It checks the files for invalid structure, instructions that reach for credentials or private data, commands that download and run remote code, override language, and skills that conflict with each other.
+2. Run [SkillClinic](https://github.com/Dongdarealest/skillclinic) against that folder. It checks the files for invalid structure, instructions that reach for credentials or private data, commands that download and run remote code, override language, and skills that conflict with each other.
 3. Read every finding. A FAIL means fix it yourself or walk away. A WARN means you understand exactly what triggers it before you proceed. A clean scan is a starting point, not a verdict.
 
 ## The human checks

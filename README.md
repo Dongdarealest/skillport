@@ -6,13 +6,13 @@
 
 **Your AI is running bare. Give it skills.**
 
-New from the same workshop: [SkillDoctor](https://github.com/Dongdarealest/skilldoctor) audited 777 skills from the six biggest public collections, and one in three failed. [Read the audit](https://github.com/Dongdarealest/skilldoctor/blob/main/AUDIT.md).
+New from the same workshop: [SkillClinic](https://github.com/Dongdarealest/skillclinic) audited 777 skills from the six biggest public collections, and one in three failed. [Read the audit](https://github.com/Dongdarealest/skillclinic/blob/main/AUDIT.md).
 
 <p align="center">
-  <a href="https://github.com/Dongdarealest/skilldoctor/blob/main/REGISTRY.md"><img src="https://dongdarealest.github.io/skilldoctor/badges/Dongdarealest--skillport-plaque.svg" alt="SkillDoctor audited plaque: health 98 of 100, 30 skills, 0 failures, November 2026" width="560"></a>
+  <a href="https://github.com/Dongdarealest/skillclinic/blob/main/REGISTRY.md"><img src="https://dongdarealest.github.io/skillclinic/badges/Dongdarealest--skillport-plaque.svg" alt="SkillClinic audited plaque: health 98 of 100, 30 skills, 0 failures, November 2026" width="560"></a>
 </p>
 
-SkillPort itself sits in the SkillDoctor [registry](https://dongdarealest.github.io/skilldoctor/): every skill in the collection passes with 0 failures. The plaque above is served live from the registry and re-verified daily, so the score on its face is the current one, not a snapshot.
+SkillPort itself sits in the SkillClinic [registry](https://dongdarealest.github.io/skillclinic/): every skill in the collection passes with 0 failures. The plaque above is served live from the registry and re-verified daily, so the score on its face is the current one, not a snapshot.
 
 [Live demo](https://dongdarealest.github.io/skillport/) · [Packs](#packs) · [Install](#install) · [Catalog](#catalog) · [For authors](#for-authors-the-converter) · [Philosophy](#philosophy)
 
@@ -119,7 +119,7 @@ Every pack is a ZIP download in the table above. Unzip it, open the folder for y
 
 ### ShipSafe Pack
 
-- **vet-before-install**: vets a third-party skill or prompt pack before it is installed. An automated audit with SkillDoctor first, then the human checks for authority claims, outbound actions and credential reach.
+- **vet-before-install**: vets a third-party skill or prompt pack before it is installed. An automated audit with SkillClinic first, then the human checks for authority claims, outbound actions and credential reach.
 - **secrets-out**: scrubs credentials, tokens, personal data and private paths out of anything before it is pasted, committed or sent. Replace, do not just delete, and rotate what already leaked.
 - **backup-before-change**: makes a restore point of skills, configs and dotfiles before an agent edits them, and rolls back the whole folder when an edit goes wrong.
 
