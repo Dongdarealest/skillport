@@ -2,7 +2,7 @@
 
 ![SkillPort: a quiet port at night, a lighthouse beam over the water](assets/banner.png)
 
-![Release](https://img.shields.io/github/v/release/Dongdarealest/skillport?color=C9A35F) ![License](https://img.shields.io/badge/license-MIT-C9A35F) ![Platforms](https://img.shields.io/badge/platforms-Claude%20%C2%B7%20Cursor%20%C2%B7%20Codex%20%C2%B7%20ChatGPT-C9A35F) ![Skills](https://img.shields.io/badge/skills-15-C9A35F) ![Visitors](https://visitor-badge.laobi.icu/badge?page_id=Dongdarealest.skillport)
+![Release](https://img.shields.io/github/v/release/Dongdarealest/skillport?color=C9A35F) ![License](https://img.shields.io/badge/license-MIT-C9A35F) ![Platforms](https://img.shields.io/badge/platforms-Claude%20%C2%B7%20Cursor%20%C2%B7%20Codex%20%C2%B7%20ChatGPT-C9A35F) ![Skills](https://img.shields.io/badge/skills-17-C9A35F) ![Visitors](https://visitor-badge.laobi.icu/badge?page_id=Dongdarealest.skillport)
 
 **Your AI is running bare. Give it skills.**
 
@@ -48,11 +48,12 @@ Same AI. Same brief. The only difference is a skill pack.
 
 | Pack | What your AI learns | Download |
 |---|---|---|
-| [Human Touch Pack](packs/human-touch-pack/) | **Flagship.** Output that looks human-made, not generated | [ZIP](https://github.com/Dongdarealest/skillport/releases/download/v0.3.6/human-touch-pack.zip) |
-| [Design Pack](packs/design-pack/) | A designer's eye | [ZIP](https://github.com/Dongdarealest/skillport/releases/download/v0.3.6/design-pack.zip) |
-| [Writing Pack](packs/writing-pack/) | To write like a person | [ZIP](https://github.com/Dongdarealest/skillport/releases/download/v0.3.6/writing-pack.zip) |
-| [Coding Pack](packs/coding-pack/) | A senior engineer's habits | [ZIP](https://github.com/Dongdarealest/skillport/releases/download/v0.3.6/coding-pack.zip) |
-| [ShipSafe Pack](packs/shipsafe-pack/) | To check before it trusts, and to undo what went wrong | [ZIP](https://github.com/Dongdarealest/skillport/releases/download/v0.3.6/shipsafe-pack.zip) |
+| [Human Touch Pack](packs/human-touch-pack/) | **Flagship.** Output that looks human-made, not generated | [ZIP](https://github.com/Dongdarealest/skillport/releases/download/v0.3.8/human-touch-pack.zip) |
+| [Design Pack](packs/design-pack/) | A designer's eye | [ZIP](https://github.com/Dongdarealest/skillport/releases/download/v0.3.8/design-pack.zip) |
+| [Writing Pack](packs/writing-pack/) | To write like a person | [ZIP](https://github.com/Dongdarealest/skillport/releases/download/v0.3.8/writing-pack.zip) |
+| [Coding Pack](packs/coding-pack/) | A senior engineer's habits | [ZIP](https://github.com/Dongdarealest/skillport/releases/download/v0.3.8/coding-pack.zip) |
+| [ShipSafe Pack](packs/shipsafe-pack/) | To check before it trusts, and to undo what went wrong | [ZIP](https://github.com/Dongdarealest/skillport/releases/download/v0.3.8/shipsafe-pack.zip) |
+| [Guard Pack](packs/guard-pack/) | To catch a Chrome Web Store rejection before the reviewer does | [ZIP](https://github.com/Dongdarealest/skillport/releases/download/v0.3.8/guard-pack.zip) |
 
 ## Install
 
@@ -61,13 +62,16 @@ One line installs a whole pack. Swap the pack name and the last word for your AI
 ### Claude
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/Dongdarealest/skillport/main/install.sh | bash -s -- human-touch-pack claude
+curl -fsSL https://raw.githubusercontent.com/Dongdarealest/skillport/v0.3.8/install.sh -o /tmp/skillport-install.sh
+echo "79e232f30c44364e16778000ec93fe80b199c66845bfbe55c606118786e0f9a3  /tmp/skillport-install.sh" | sha256sum -c -
+bash /tmp/skillport-install.sh human-touch-pack claude
 ```
 
 On Windows, in PowerShell:
 
 ```powershell
-irm https://raw.githubusercontent.com/Dongdarealest/skillport/main/install.ps1 -OutFile install.ps1
+Invoke-WebRequest https://raw.githubusercontent.com/Dongdarealest/skillport/v0.3.8/install.ps1 -OutFile install.ps1
+if ((Get-FileHash install.ps1 -Algorithm SHA256).Hash -ne "BBAC7B01119A5BF3D4A8DE8E9581EB8F3FF6DEBC1882390FDA5A6163C7AAC401") { throw "Checksum mismatch: install.ps1 did not match the published hash." }
 .\install.ps1 human-touch-pack claude
 ``` Using Claude on the web instead? Zip any single skill folder inside a pack's `for-claude/` folder and upload it under Settings, Skills.
 
@@ -118,6 +122,11 @@ Every pack is a ZIP download in the table above. Unzip it, open the folder for y
 - **vet-before-install**: vets a third-party skill or prompt pack before it is installed. An automated audit with SkillDoctor first, then the human checks for authority claims, outbound actions and credential reach.
 - **secrets-out**: scrubs credentials, tokens, personal data and private paths out of anything before it is pasted, committed or sent. Replace, do not just delete, and rotate what already leaked.
 - **backup-before-change**: makes a restore point of skills, configs and dotfiles before an agent edits them, and rolls back the whole folder when an edit goes wrong.
+
+### Guard Pack
+
+- **cws-rejection-guard**: audits a Chrome extension against the Chrome Web Store rejection patterns before submission, using Google's own notification IDs, and returns a verdict: BLOCKED, WARN or CLEAR. Thirty sourced patterns, a runnable scanner, and a before and after demo in `packs/guard-pack/demo/`.
+- **cws-appeal-draft**: drafts a Chrome Web Store rejection appeal from the rejection email and the extension's evidence, in the three-part shape that wins appeals: acknowledgment, explanation, evidence.
 
 ## For authors: the converter
 

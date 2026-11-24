@@ -27,4 +27,5 @@ jobs:
             packs/design-pack/design-pack.zip \
             packs/writing-pack/writing-pack.zip \
             packs/coding-pack/coding-pack.zip \
-            packs/shipsafe-pack/shipsafe-pack.zip
+            packs/shipsafe-pack/shipsafe-pack.zip \
+            packs/guard-pack/guard-pack.zip

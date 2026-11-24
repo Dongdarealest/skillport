@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Guard Pack demo: the same extension, before and after</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Georgia, 'Times New Roman', serif; background: #f4f1ea; color: #1a1a1a; padding: 40px 48px 48px; }
+  header { text-align: center; margin-bottom: 28px; }
+  .eyebrow { font-family: -apple-system, 'Segoe UI', sans-serif; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #a98b4f; }
+  h1 { font-size: 34px; font-weight: normal; margin: 10px 0 8px; }
+  header p { font-family: -apple-system, 'Segoe UI', sans-serif; font-size: 15px; color: #555; max-width: 760px; margin: 0 auto; line-height: 1.5; }
+  .panels { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; max-width: 1184px; margin: 0 auto; }
+  .panel { background: #fff; border: 1px solid #ddd6c8; border-radius: 12px; overflow: hidden; }
+  .panel-head { padding: 16px 20px; font-family: -apple-system, 'Segoe UI', sans-serif; display: flex; justify-content: space-between; align-items: center; }
+  .before .panel-head { background: #fbe9e7; }
+  .after .panel-head { background: #e6f4ea; }
+  .panel-head b { font-size: 15px; letter-spacing: 1px; text-transform: uppercase; }
+  .verdict { font-size: 13px; font-weight: 700; padding: 4px 10px; border-radius: 20px; }
+  .before .verdict { background: #c62828; color: #fff; }
+  .after .verdict { background: #2e7d32; color: #fff; }
+  .listing { padding: 18px 20px 14px; border-bottom: 1px solid #eee; display: flex; gap: 14px; }
+  .icon { width: 56px; height: 56px; border-radius: 12px; background: #1a1a1a; color: #f4f1ea; display: flex; align-items: center; justify-content: center; font-family: -apple-system, 'Segoe UI', sans-serif; font-size: 26px; font-weight: 700; flex: none; }
+  .after .icon { background: #a98b4f; }
+  .listing h2 { font-size: 20px; font-weight: normal; }
+  .listing .meta { font-family: -apple-system, 'Segoe UI', sans-serif; font-size: 12px; color: #777; margin: 3px 0 6px; }
+  .listing p { font-family: -apple-system, 'Segoe UI', sans-serif; font-size: 13.5px; line-height: 1.55; color: #444; }
+  .listing p s { color: #c62828; text-decoration-color: #c62828; }
+  .guard { padding: 16px 20px 18px; font-family: -apple-system, 'Segoe UI', sans-serif; }
+  .guard h3 { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #888; margin-bottom: 10px; }
+  .finding { display: flex; gap: 10px; padding: 8px 0; border-top: 1px solid #f0ede6; font-size: 13.5px; line-height: 1.45; }
+  .finding:first-of-type { border-top: none; }
+  .sev { flex: none; font-size: 10px; font-weight: 700; letter-spacing: 1px; padding: 2px 7px; border-radius: 4px; height: fit-content; margin-top: 1px; }
+  .sev.crit { background: #c62828; color: #fff; }
+  .sev.high { background: #ef6c00; color: #fff; }
+  .finding code { font-size: 12px; background: #f4f1ea; padding: 1px 5px; border-radius: 4px; }
+  .clear-note { font-size: 14px; line-height: 1.6; color: #2e7d32; }
+  .clear-note small { display: block; color: #666; margin-top: 6px; font-size: 12.5px; }
+  .fixes { max-width: 1184px; margin: 28px auto 0; background: #fff; border: 1px solid #ddd6c8; border-radius: 12px; padding: 20px 24px; }
+  .fixes h3 { font-size: 12px; font-family: -apple-system, 'Segoe UI', sans-serif; letter-spacing: 2px; text-transform: uppercase; color: #888; margin-bottom: 12px; }
+  .fixes ol { columns: 2; column-gap: 40px; padding-left: 18px; }
+  .fixes li { font-family: -apple-system, 'Segoe UI', sans-serif; font-size: 13.5px; line-height: 1.5; margin-bottom: 8px; break-inside: avoid; }
+  footer { text-align: center; margin-top: 24px; font-family: -apple-system, 'Segoe UI', sans-serif; font-size: 12.5px; color: #888; }
+</style>
+</head>
+<body>
+<header>
+  <div class="eyebrow">Guard Pack · cws-rejection-guard</div>
+  <h1>The same extension, before and after</h1>
+  <p>TabTidy, a tab manager, submitted twice. On the left, the first submission, with six concrete findings from the guard. On the right, the same extension after the guard's fixes. Same product, same purpose, only the craft differs.</p>
+</header>
+
+<div class="panels">
+  <section class="panel before">
+    <div class="panel-head"><b>Before · version 1.0.0</b><span class="verdict">BLOCKED · 2 critical, 4 high</span></div>
+    <div class="listing">
+      <div class="icon">T</div>
+      <div>
+        <h2>TabTidy</h2>
+        <div class="meta">Productivity · Version 1.0.0 · 12 users</div>
+        <p>TabTidy organizes your tabs, saves your tabs, restores your tabs, searches your tabs, groups your tabs, suspends your tabs, and syncs your tabs across devices. Better than OneTab and Toby for tabs, tab management, tab groups, tab organizer, tab saver, tab search. Works on all sites.</p>
+      </div>
+    </div>
+    <div class="guard">
+      <h3>What the guard found</h3>
+      <div class="finding"><span class="sev crit">CRITICAL</span><span><code>CWS-001 · Blue Argon</code> · popup.html:3<br>Script tag loads code from outside the package.</span></div>
+      <div class="finding"><span class="sev crit">CRITICAL</span><span><code>CWS-013 · Purple Lithium</code> · listing.json<br>Tab titles are synced to a server, but no privacy policy is set.</span></div>
+      <div class="finding"><span class="sev high">HIGH</span><span><code>CWS-005 · Yellow Magnesium</code> · manifest.json<br>Named file is missing: icons/icon128.png.</span></div>
+      <div class="finding"><span class="sev high">HIGH</span><span><code>CWS-007 · Purple Potassium</code> · manifest.json<br>Permission "cookies" is declared but never used.</span></div>
+      <div class="finding"><span class="sev high">HIGH</span><span><code>CWS-008 · Purple Potassium</code> · manifest.json<br>Host permission "&lt;all_urls&gt;" is as broad as it gets.</span></div>
+      <div class="finding"><span class="sev high">HIGH</span><span><code>CWS-018 · Yellow Argon</code> · listing.json<br>The word "tabs" appears 8 times in the description.</span></div>
+    </div>
+  </section>
+
+  <section class="panel after">
+    <div class="panel-head"><b>After · version 1.1.0</b><span class="verdict">CLEAR · 0 critical, 0 high</span></div>
+    <div class="listing">
+      <div class="icon">T</div>
+      <div>
+        <h2>TabTidy</h2>
+        <div class="meta">Productivity · Version 1.1.0 · 12 users</div>
+        <p>TabTidy saves your open tabs into named groups, restores a group with one click, and suspends tabs you have not touched in a while to free memory. Everything is stored on your device. No account, no tracking.</p>
+      </div>
+    </div>
+    <div class="guard">
+      <h3>What the guard found</h3>
+      <p class="clear-note">No mechanical findings.
+        <small>That is not an approval. The reviewer still checks what a scan cannot see: whether the extension works in a clean profile, whether the screenshots are honest, and whether the single purpose holds.</small>
+      </p>
+      <div class="finding" style="margin-top:12px"><span class="sev" style="background:#2e7d32;color:#fff">CHECK</span><span>Single purpose: one sentence, one job. The tab manager does tabs and nothing else.</span></div>
+      <div class="finding"><span class="sev" style="background:#2e7d32;color:#fff">CHECK</span><span>Deception: every promised feature works, and the listing mentions every behavior.</span></div>
+      <div class="finding"><span class="sev" style="background:#2e7d32;color:#fff">CHECK</span><span>Functionality: installed from the submitted ZIP in a clean profile, every feature used once.</span></div>
+    </div>
+  </section>
+</div>
+
+<div class="fixes">
+  <h3>What changed between the two panels</h3>
+  <ol>
+    <li>The remote script tag is gone. The widget code is bundled inside the package.</li>
+    <li>The unused <code>cookies</code> permission is removed from the manifest.</li>
+    <li>Host access is gone entirely. The extension works on the tabs API alone.</li>
+    <li>The description is plain sentences. No keyword lists, no competitor names.</li>
+    <li>Tab titles no longer leave the device. A privacy policy says so in the designated field.</li>
+    <li>The missing 128 pixel icon exists, so the package matches the manifest.</li>
+  </ol>
+</div>
+
+<footer>Run it yourself: node guard.mjs examples/failing-extension, then node guard.mjs examples/passing-extension. Watch the verdict flip.</footer>
+</body>
+</html>

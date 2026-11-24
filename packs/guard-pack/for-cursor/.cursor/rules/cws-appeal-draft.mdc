@@ -1,0 +1,30 @@
+---
+description: Drafts a Chrome Web Store rejection appeal from the rejection email and the extension's evidence, in the three-part shape that wins appeals: acknowledgment, explanation, evidence. Use when an extension was rejected and the developer believes the rejection was wrong or ambiguous.
+globs:
+alwaysApply: false
+---
+
+# CWS Appeal Draft
+
+A rejection is recoverable. A bad appeal turns one rejection into a strike, so the appeal is written the way a reviewer reads: short, factual, and tied to the policy by name.
+
+## Before writing
+
+1. Read the rejection email in full and copy out each cited policy and violation ID exactly as written. Do not guess at the cause: the email tells you.
+2. For each cited violation, name the pattern it maps to in the guard's pattern file, or state plainly that it maps to none.
+3. Gather the evidence for each one: which permission maps to which visible feature, and a screenshot or short recording of that feature working.
+
+## The draft
+
+Three parts, in this order, and nothing else:
+
+1. **Acknowledgment.** One paragraph. Name the cited policy and violation ID, and state what was done about it. If the extension was changed, say what changed. If nothing was changed because the rejection was a mistake, say that plainly.
+2. **Explanation.** One short section per cited violation. For each: the policy by name, why the flagged thing is necessary, and which user facing feature it serves. Permission justifications name the feature a reviewer can see and test.
+3. **Evidence.** The list of attachments: screenshots, a short recording, the reviewer notes that now carry the explanation. No attachment is listed that does not exist.
+
+## Rules
+
+- Factual, not emotional. No complaints about the review process, no claims about intent.
+- Short. A reviewer reads many appeals; the whole draft fits on one screen.
+- Never claim the extension is compliant in general. Claim the specific facts, with evidence, for each cited violation.
+- If the rejection was justified, do not write an appeal. Fix the issue, resubmit, and use the reviewer notes field to explain the change.

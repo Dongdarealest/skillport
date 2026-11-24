@@ -1,0 +1,10 @@
+{
+  "title": "TabTidy",
+  "description": "TabTidy saves your open tabs into named groups, restores a group with one click, and suspends tabs you have not touched in a while to free memory. Everything is stored on your device. No account, no tracking.",
+  "category": "Productivity",
+  "screenshots": [
+    "screenshot-1.png",
+    "screenshot-2.png"
+  ],
+  "privacy_policy_url": "https://tabtidy.example/privacy"
+}

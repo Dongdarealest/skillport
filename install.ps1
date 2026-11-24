@@ -1,6 +1,6 @@
 # SkillPort one-line installer for Windows.
 # Usage: .\install.ps1 <pack> <ai>
-#   pack: human-touch-pack, shipsafe-pack | design-pack | writing-pack | coding-pack
+#   pack: human-touch-pack, shipsafe-pack, guard-pack | design-pack | writing-pack | coding-pack
 #   ai:   claude | cursor | codex | chatgpt
 param([Parameter(Mandatory=$true)][string]$Pack, [Parameter(Mandatory=$true)][string]$Ai)
 $ErrorActionPreference = "Stop"

@@ -7,13 +7,16 @@ PACKS = {
     "writing-pack": ("Writing Pack", "Three skills that make your AI write like a person."),
     "coding-pack": ("Coding Pack", "Three skills that make your AI review, commit and document like a senior engineer."),
     "shipsafe-pack": ("ShipSafe Pack", "Three skills that keep other people's instructions from hurting your machine, your accounts or your work."),
+    "guard-pack": ("Guard Pack", "Two skills that catch a Chrome Web Store rejection before the reviewer does."),
 }
 INSTALL = """## Install
 
 One line, in your terminal:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/Dongdarealest/skillport/main/install.sh | bash -s -- {pack} claude
+curl -fsSL https://raw.githubusercontent.com/Dongdarealest/skillport/v0.3.8/install.sh -o /tmp/skillport-install.sh
+echo "79e232f30c44364e16778000ec93fe80b199c66845bfbe55c606118786e0f9a3  /tmp/skillport-install.sh" | sha256sum -c -
+bash /tmp/skillport-install.sh {pack} claude
 ```
 
 Swap the last word for your AI: `claude`, `cursor` or `codex`. On Windows, use `install.ps1` from the repo root the same way. For ChatGPT, download the ZIP above and paste the files in `for-chatgpt/` into your custom GPT or project instructions. Using Claude on the web instead? Zip any single skill folder inside `for-claude/` and upload it under Settings, Skills.
